@@ -159,6 +159,10 @@
   min-width: 177.77vh; /* 16:9 = 177.77vh */
   z-index: -2;
   pointer-events: none;
+  background-color: var(--color-bg-main);
+  background-image: url('https://img.youtube.com/vi/ZfSzKrKHd-k/hqdefault.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .hero-video {
