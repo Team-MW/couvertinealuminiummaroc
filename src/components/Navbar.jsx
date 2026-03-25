@@ -12,13 +12,13 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="logo-container" onClick={closeMenu}>
-          <img src="/logo.png" alt="Couvertine Aluminium Maroc Logo" className="logo" />
-          <span className="logo-text">Couvertine Maroc</span>
+          <img src="/logo.webp" alt="Couvertine Aluminium Maroc Logo" className="logo" />
         </Link>
         
         <div className="desktop-menu">
           <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}>Accueil</Link>
           <Link to="/services" className={`nav-link ${location.pathname === '/services' ? 'active' : ''}`}>Nos Services</Link>
+          <Link to="/galerie" className={`nav-link ${location.pathname === '/galerie' ? 'active' : ''}`}>Galerie</Link>
           <Link to="/about" className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}>Qui sommes-nous ?</Link>
           <Link to="/contact" className={`nav-link contact-btn ${location.pathname === '/contact' ? 'active' : ''}`}>Contactez-Nous</Link>
         </div>
@@ -32,6 +32,7 @@ export default function Navbar() {
         <div className="mobile-menu">
           <Link to="/" className="mobile-link" onClick={closeMenu}>Accueil</Link>
           <Link to="/services" className="mobile-link" onClick={closeMenu}>Nos Services</Link>
+          <Link to="/galerie" className="mobile-link" onClick={closeMenu}>Galerie</Link>
           <Link to="/about" className="mobile-link" onClick={closeMenu}>Qui sommes-nous ?</Link>
           <Link to="/contact" className="mobile-link contact-btn-mobile" onClick={closeMenu}>Contactez-Nous</Link>
         </div>

@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="container footer-container">
         <div className="footer-brand">
           <div className="logo-container">
-            <img src="/logo.png" alt="Logo" className="logo" />
+            <img src="/logo.webp" alt="Logo" className="logo" />
             <span className="logo-text">Couvertine Maroc</span>
           </div>
           <p className="footer-desc">
@@ -25,6 +25,7 @@ export default function Footer() {
           <h4 className="footer-title">Liens Rapides</h4>
           <Link to="/" className="footer-link"><ChevronRight size={16} /> Accueil</Link>
           <Link to="/services" className="footer-link"><ChevronRight size={16} /> Nos Services</Link>
+          <Link to="/galerie" className="footer-link"><ChevronRight size={16} /> Galerie</Link>
           <Link to="/about" className="footer-link"><ChevronRight size={16} /> Qui sommes-nous ?</Link>
           <Link to="/contact" className="footer-link"><ChevronRight size={16} /> Contactez-Nous</Link>
         </div>

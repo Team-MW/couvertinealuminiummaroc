@@ -12,7 +12,7 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 80px;
+  height: 90px;
   background-color: rgba(10, 10, 12, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -39,12 +39,9 @@
 }
 
 .logo {
-  height: 48px;
+  height: 70px;
   width: auto;
   object-fit: contain;
-  border-radius: 4px;
-  background: white;
-  padding: 4px;
 }
 
 .logo-text {
@@ -108,7 +105,7 @@
 
 .mobile-menu {
   position: absolute;
-  top: 80px;
+  top: 90px;
   left: 0;
   right: 0;
   background-color: var(--color-bg-main);
@@ -339,10 +336,9 @@
 }
 
 .about-inner-img {
-  max-width: 60%;
-  max-height: 60%;
-  object-fit: contain;
-  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.2));
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .about-content .section-title {
