@@ -42,21 +42,20 @@ export default function Home() {
       <AnimatedStats />
 
       {/* About Teaser */}
-      <section style={{ padding: '100px 0', backgroundColor: '#ffffff', color: '#202124' }}>
+      <section style={{ padding: '100px 0', backgroundColor: '#ffffff', color: '#202124', position: 'relative', zIndex: 1 }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '60px', alignItems: 'center' }}>
-            {/* Collage Images */}
+          <div className="values-grid-container">
             {/* Collage Images */}
             <div className="about-collage-grid">
-              <img src="/about-1.webp" alt="Projet Couvertine" className="about-collage-img" />
-              <img src="/about-2.webp" alt="Technicien" className="about-collage-img" />
-              <img src="/about-3.webp" alt="Intervention" className="about-collage-img" />
+              <img src="/about-1.webp" alt="Projet" className="about-collage-img" />
+              <img src="/about-2.webp" alt="Service" className="about-collage-img" />
+              <img src="/about-3.webp" alt="Installation" className="about-collage-img" />
               <img src="/about-4.webp" alt="Équipe" className="about-collage-img" />
             </div>
 
             {/* Content */}
-            <div>
-              <h2 style={{ textAlign: 'left', color: '#111827', fontSize: '2.8rem', marginBottom: '24px', lineHeight: '1.2', fontWeight: '800' }}>
+            <div className="about-content">
+              <h2 style={{ textAlign: 'left', color: '#111827', fontSize: 'clamp(2rem, 4vw, 2.8rem)', marginBottom: '24px', lineHeight: '1.2', fontWeight: '800' }}>
                 À propos de Couvertine Aluminium Maroc
               </h2>
               <p style={{ color: '#4b5563', fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '32px' }}>
@@ -67,16 +66,16 @@ export default function Home() {
               
               <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '1.1rem', color: '#111827', fontWeight: 'bold' }}>
-                  <CheckCircle size={24} color="#ff6b00" /> Expérience et savoir-faire
+                  <CheckCircle size={24} color="var(--color-primary)" /> Expérience et savoir-faire
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '1.1rem', color: '#111827', fontWeight: 'bold' }}>
-                  <CheckCircle size={24} color="#ff6b00" /> Garantie de satisfaction à 100 %
+                  <CheckCircle size={24} color="var(--color-primary)" /> Garantie de satisfaction à 100 %
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '1.1rem', color: '#111827', fontWeight: 'bold' }}>
-                  <CheckCircle size={24} color="#ff6b00" /> Équipe professionnelle
+                  <CheckCircle size={24} color="var(--color-primary)" /> Équipe professionnelle
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '1.1rem', color: '#111827', fontWeight: 'bold' }}>
-                  <CheckCircle size={24} color="#ff6b00" /> Intervention nationale
+                  <CheckCircle size={24} color="var(--color-primary)" /> Intervention nationale
                 </li>
               </ul>
             </div>
@@ -114,7 +113,7 @@ export default function Home() {
       </section>
 
       {/* Main Services Showcase */}
-      <section style={{ padding: '100px 0', backgroundColor: '#f9fafb' }}>
+      <section style={{ padding: '100px 0', backgroundColor: '#f3f4f6', position: 'relative', zIndex: 1 }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '80px' }}>
             <h2 className="section-title">Nos Solutions Sur-Mesure</h2>
@@ -128,7 +127,7 @@ export default function Home() {
             {/* Service 1 */}
             <div className="service-grid-card">
               <div className="service-card-img-container">
-                <img src="/srv-couvertine.webp" alt="Couvertine" className="service-card-img" />
+                <img src="/srv-couvertine.webp" alt="Couvertine" className="service-card-img" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', display: 'block' }} />
               </div>
               <div className="service-card-content">
                 <h3 className="service-card-title">Couvertine en aluminium 10/10ème</h3>
@@ -141,9 +140,6 @@ export default function Home() {
 
             {/* Service 2 */}
             <div className="service-grid-card">
-              <div className="service-card-img-container">
-                <img src="/srv-lambris.webp" alt="Lambris" className="service-card-img" />
-              </div>
               <div className="service-card-content">
                 <h3 className="service-card-title">Lambris en aluminium / Façades</h3>
                 <div className="service-card-divider"></div>
@@ -151,12 +147,15 @@ export default function Home() {
                   Idéal pour habiller les murs et les plafonds aussi bien en intérieur qu’en extérieur. Conçu à partir d’aluminium haute qualité, il se distingue par sa résistance exceptionnelle aux intempéries, à l’humidité et à la corrosion, en faisant un choix parfait pour les environnements exposés comme les façades, les sous-toitures et les vérandas.
                 </p>
               </div>
+              <div className="service-card-img-container">
+                <img src="/srv-lambris.webp" alt="Lambris" className="service-card-img" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', display: 'block' }} />
+              </div>
             </div>
 
             {/* Service 3 */}
             <div className="service-grid-card">
               <div className="service-card-img-container">
-                <img src="/srv-boite.webp" alt="Boîte à eau" className="service-card-img" />
+                <img src="/srv-boite.webp" alt="Boîte à eau" className="service-card-img" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', display: 'block' }} />
               </div>
               <div className="service-card-content">
                 <h3 className="service-card-title">Boîte à eau et descente pluviale en aluminium</h3>
@@ -169,9 +168,6 @@ export default function Home() {
 
             {/* Service 4 */}
             <div className="service-grid-card">
-              <div className="service-card-img-container">
-                <img src="/srv-appui.webp" alt="Appui de fenêtre" className="service-card-img" />
-              </div>
               <div className="service-card-content">
                 <h3 className="service-card-title">Appui de fenêtre en aluminium</h3>
                 <div className="service-card-divider"></div>
@@ -179,12 +175,15 @@ export default function Home() {
                   Conçu en aluminium, ce dispositif se distingue par sa légèreté, sa robustesse et sa résistance à la corrosion, garantissant une longue durée de vie sans entretien particulier.
                 </p>
               </div>
+              <div className="service-card-img-container">
+                <img src="/srv-appui.webp" alt="Appui de fenêtre" className="service-card-img" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', display: 'block' }} />
+              </div>
             </div>
 
             {/* Service 5 */}
             <div className="service-grid-card">
               <div className="service-card-img-container">
-                <img src="/srv-etancheite.webp" alt="Étanchéité" className="service-card-img" />
+                <img src="/srv-etancheite.webp" alt="Étanchéité" className="service-card-img" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', display: 'block' }} />
               </div>
               <div className="service-card-content">
                 <h3 className="service-card-title">Étanchéité</h3>
