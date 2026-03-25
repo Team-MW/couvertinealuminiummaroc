@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FAQ from '../components/FAQ';
 
 export default function Galerie() {
   const images = [
@@ -75,6 +76,11 @@ export default function Galerie() {
           </Link>
         </div>
       </section>
+      <FAQ questions={[
+        { question: "Où peut-on voir vos réalisations en personne ?", answer: "Nos réalisations sont visibles sur de nombreux projets publics et privés partout au Maroc. Contactez-nous pour une liste des chantiers dans votre ville." },
+        { question: "Puis-je avoir un échantillon de couleur ?", answer: "Oui, lors du devis, nos techniciens vous présentent un nuancier physique et des échantillons d'aluminium laqué pour valider votre choix." },
+        { question: "Est-ce que vos photos sont réelles ?", answer: "Toutes les photos de cette galerie sont issues de nos propres chantiers au Maroc. Pas de photos de catalogue, juste notre vrai travail." }
+      ]} />
     </>
   );
 }

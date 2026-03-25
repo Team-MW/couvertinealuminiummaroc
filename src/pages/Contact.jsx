@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
+import FAQ from '../components/FAQ';
 
 export default function Contact() {
   return (
@@ -89,6 +90,11 @@ export default function Contact() {
           </div>
         </div>
       </section>
+      <FAQ questions={[
+        { question: "En combien de temps recevrai-je mon devis ?", answer: "Nous répondons sous 24h ouvrées. Nos techniciens peuvent se déplacer sur site pour une étude gratuite." },
+        { question: "Le devis est-il payant ?", answer: "Non, toutes nos études et devis sont 100% gratuits et sans engagement, partout au Maroc." },
+        { question: "Acceptez-vous les petits projets ?", answer: "Nous équipons aussi bien les maisons individuelles (murets, fenêtres) que les grands chantiers industriels." }
+      ]} />
     </>
   );
 }

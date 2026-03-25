@@ -1,4 +1,5 @@
 import React from 'react';
+import FAQ from '../components/FAQ';
 
 export default function PolitiqueConfidentialite() {
   return (
@@ -60,6 +61,10 @@ export default function PolitiqueConfidentialite() {
           
         </div>
       </section>
+      <FAQ questions={[
+        { question: "Mes données sont-elles partagées ?", answer: "Jamais. Vos coordonnées servent exclusivement à nos techniciens pour préparer votre devis." },
+        { question: "Comment supprimer mes informations ?", answer: "Envoyez-nous simplement un email et nous supprimerons toutes vos données de notre base de contact immédiatement." }
+      ]} />
     </>
   );
 }

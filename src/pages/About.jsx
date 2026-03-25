@@ -1,5 +1,6 @@
 import React from 'react';
 import { Target, Factory, Wrench, CheckCircle } from 'lucide-react';
+import FAQ from '../components/FAQ';
 
 export default function About() {
   return (
@@ -108,6 +109,11 @@ export default function About() {
           </div>
         </div>
       </section>
+      <FAQ questions={[
+        { question: "Depuis combien de temps existez-vous ?", answer: "Couvertine Aluminium Maroc bénéficie de plus de 10 ans d'expertise dans le pliage et la pose d'aluminium, avec une équipe de professionnels chevronnés." },
+        { question: "Où se trouve votre atelier ?", answer: "Notre atelier principal est mobilisable partout au Maroc grâce à nos unités mobiles de pliage, nous permettant de fabriquer sur-mesure directement sur vos chantiers." },
+        { question: "Quelle est votre zone d'intervention ?", answer: "Nous intervenons dans toutes les villes du Maroc (Marrakech, Casablanca, Rabat, Agadir, etc.) pour des projets de toutes tailles." }
+      ]} />
     </>
   );
 }

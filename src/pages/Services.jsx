@@ -2,6 +2,7 @@ import React from 'react';
 import { Package, Maximize, Droplet, LayoutPanelTop, Shield, ArrowRight, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import AnimatedStats from '../components/AnimatedStats';
+import FAQ from '../components/FAQ';
 
 export default function Services() {
   const services = [
@@ -162,6 +163,11 @@ export default function Services() {
           </Link>
         </div>
       </section>
+      <FAQ questions={[
+        { question: "Quelles sont les finitions disponibles ?", answer: "Nous proposons du laquage (toutes couleurs RAL), de l'aluminium anodisé et des effets spéciaux comme l'imitation bois." },
+        { question: "Pourquoi choisir l'aluminium 10/10ème ?", answer: "L'épaisseur 10/10ème (1mm) offre le meilleur compromis entre rigidité structurelle et malléabilité pour un pliage précis, tout en étant ultra résistant." },
+        { question: "Fabriquez-vous sur mesure ?", answer: "Oui, à 100%. Notre atelier mobile dessine et plie chaque pièce selon les dimensions réelles de vos murs pour un ajustement au millimètre." }
+      ]} />
     </>
   );
 }
