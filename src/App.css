@@ -550,3 +550,119 @@
   color: var(--color-text-muted);
   font-size: 0.9rem;
 }
+
+/* Responsive Utilities for New Sections */
+.service-showcase-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.service-grid-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 24px;
+  border: 1px solid #f3f4f6;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+}
+
+@media (min-width: 768px) {
+  .service-grid-card {
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    padding: 40px;
+  }
+  
+  /* Alternate layout on desktop */
+  .service-grid-card:nth-child(even) .service-card-img-container {
+    order: 1;
+  }
+  .service-grid-card:nth-child(even) .service-card-content {
+    order: 0;
+  }
+}
+
+.service-card-img-container {
+  order: 0; /* Image first on mobile */
+}
+
+.service-card-content {
+  order: 1; /* Text second on mobile */
+}
+
+.service-card-title {
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  color: #111827;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.service-card-divider {
+  width: 50px;
+  height: 4px;
+  background-color: var(--color-primary);
+  border-radius: 2px;
+}
+
+.service-card-text {
+  color: #4b5563;
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+/* About Collage Responsive */
+.about-collage-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+@media (min-width: 768px) {
+  .about-collage-grid {
+    gap: 25px;
+  }
+}
+
+.about-collage-img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  border: 3px solid #fff;
+}
+
+/* Values Grid Responsive */
+.values-grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .values-grid-container {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+  }
+}
+
+/* Contact Bar Responsive */
+.contact-info-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .contact-info-bar {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 30px;
+  }
+}

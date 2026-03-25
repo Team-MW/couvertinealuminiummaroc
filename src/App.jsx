@@ -10,6 +10,7 @@ import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite';
 import Contact from './pages/Contact';
 import Galerie from './pages/Galerie';
 import WhatsAppButton from './components/WhatsAppButton';
+import ScrollToTop from './components/ScrollToTop';
 import './App.css';
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       {loading && (
         <div className={`global-loader ${fade ? 'loader-fade-out' : ''}`}>
           <div className="custom-spinner"></div>

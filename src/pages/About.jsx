@@ -60,7 +60,7 @@ export default function About() {
       
       <section style={{ padding: '100px 0' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '60px', alignItems: 'center' }}>
+          <div className="values-grid-container">
             {/* Left: Text & List */}
             <div style={{ textAlign: 'left' }}>
               <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '24px' }}>Nos valeurs et nos engagements</h2>

@@ -10,7 +10,7 @@ export default function Contact() {
       </div>
       
       <section style={{ padding: '60px 0', backgroundColor: 'var(--color-bg-secondary)', borderBottom: '1px solid var(--color-border)', borderTop: '1px solid var(--color-border)' }}>
-        <div className="container" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', gap: '30px', textAlign: 'center' }}>
+        <div className="container contact-info-bar">
           <div>
             <div style={{ color: 'var(--color-primary)', marginBottom: '12px' }}><MapPin size={32} /></div>
             <h4 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Notre adresse</h4>

@@ -46,23 +46,12 @@ export default function Home() {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '60px', alignItems: 'center' }}>
             {/* Collage Images */}
-            <div style={{ position: 'relative', width: '100%', aspectRatio: '1/1', minHeight: '450px' }}>
-              {/* Top Left - Large House */}
-              <div style={{ position: 'absolute', top: '0', left: '0', width: '65%', height: '60%', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', zIndex: 1, backgroundColor: '#f3f4f6' }}>
-                <img src="/about-1.webp" alt="Projet Couvertine" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-              {/* Top Right - Worker */}
-              <div style={{ position: 'absolute', top: '5%', right: '5%', width: '38%', height: '42%', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.2)', zIndex: 3, border: '6px solid #ffffff', backgroundColor: '#f3f4f6' }}>
-                <img src="/about-2.webp" alt="Technicien Couvertine" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-              {/* Bottom Right - Team */}
-              <div style={{ position: 'absolute', bottom: '0', right: '0', width: '65%', height: '60%', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', zIndex: 2, backgroundColor: '#f3f4f6' }}>
-                <img src="/about-4.webp" alt="Équipe Couvertine" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-              {/* Bottom Left - Van */}
-              <div style={{ position: 'absolute', bottom: '10%', left: '5%', width: '40%', height: '42%', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.2)', zIndex: 3, border: '6px solid #ffffff', backgroundColor: '#f3f4f6' }}>
-                <img src="/about-3.webp" alt="Intervention Rapide" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
+            {/* Collage Images */}
+            <div className="about-collage-grid">
+              <img src="/about-1.webp" alt="Projet Couvertine" className="about-collage-img" />
+              <img src="/about-2.webp" alt="Technicien" className="about-collage-img" />
+              <img src="/about-3.webp" alt="Intervention" className="about-collage-img" />
+              <img src="/about-4.webp" alt="Équipe" className="about-collage-img" />
             </div>
 
             {/* Content */}
@@ -134,73 +123,73 @@ export default function Home() {
             </p>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
+          <div className="service-showcase-grid">
             
             {/* Service 1 */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '50px', alignItems: 'center', backgroundColor: '#ffffff', padding: '40px', borderRadius: '24px', border: '1px solid #f3f4f6', boxShadow: '0 20px 40px rgba(0,0,0,0.04)' }}>
-              <div style={{ order: window.innerWidth < 768 ? 1 : 0 }}>
-                <img src="/srv-couvertine.webp" alt="Couvertine" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', maxHeight: '400px' }} />
+            <div className="service-grid-card">
+              <div className="service-card-img-container">
+                <img src="/srv-couvertine.webp" alt="Couvertine" className="service-card-img" />
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', order: window.innerWidth < 768 ? 2 : 1 }}>
-                <h3 style={{ fontSize: '2.2rem', color: '#111827', margin: 0, lineHeight: '1.2' }}>Couvertine en aluminium 10/10ème</h3>
-                <div style={{ width: '50px', height: '4px', backgroundColor: 'var(--color-primary)', borderRadius: '2px' }}></div>
-                <p style={{ color: '#4b5563', fontSize: '1.15rem', lineHeight: '1.8' }}>
+              <div className="service-card-content">
+                <h3 className="service-card-title">Couvertine en aluminium 10/10ème</h3>
+                <div className="service-card-divider"></div>
+                <p className="service-card-text">
                   Cette couvertine se distingue par sa résistance à la corrosion et aux variations climatiques, assurant une durabilité accrue sans nécessiter d’entretien régulier. Disponible en plusieurs finitions et coloris, souvent avec un revêtement laqué, elle s’intègre harmonieusement à l’esthétique de tous types de constructions.
                 </p>
               </div>
             </div>
 
             {/* Service 2 */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '50px', alignItems: 'center', backgroundColor: '#ffffff', padding: '40px', borderRadius: '24px', border: '1px solid #f3f4f6', boxShadow: '0 20px 40px rgba(0,0,0,0.04)' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', order: window.innerWidth < 768 ? 2 : 0 }}>
-                <h3 style={{ fontSize: '2.2rem', color: '#111827', margin: 0, lineHeight: '1.2' }}>Lambris en aluminium / Façades</h3>
-                <div style={{ width: '50px', height: '4px', backgroundColor: 'var(--color-primary)', borderRadius: '2px' }}></div>
-                <p style={{ color: '#4b5563', fontSize: '1.15rem', lineHeight: '1.8' }}>
+            <div className="service-grid-card">
+              <div className="service-card-img-container">
+                <img src="/srv-lambris.webp" alt="Lambris" className="service-card-img" />
+              </div>
+              <div className="service-card-content">
+                <h3 className="service-card-title">Lambris en aluminium / Façades</h3>
+                <div className="service-card-divider"></div>
+                <p className="service-card-text">
                   Idéal pour habiller les murs et les plafonds aussi bien en intérieur qu’en extérieur. Conçu à partir d’aluminium haute qualité, il se distingue par sa résistance exceptionnelle aux intempéries, à l’humidité et à la corrosion, en faisant un choix parfait pour les environnements exposés comme les façades, les sous-toitures et les vérandas.
                 </p>
-              </div>
-              <div style={{ order: window.innerWidth < 768 ? 1 : 1 }}>
-                <img src="/srv-lambris.webp" alt="Lambris" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', maxHeight: '400px' }} />
               </div>
             </div>
 
             {/* Service 3 */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '50px', alignItems: 'center', backgroundColor: '#ffffff', padding: '40px', borderRadius: '24px', border: '1px solid #f3f4f6', boxShadow: '0 20px 40px rgba(0,0,0,0.04)' }}>
-              <div style={{ order: window.innerWidth < 768 ? 1 : 0 }}>
-                <img src="/srv-boite.webp" alt="Boîte à eau" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', maxHeight: '400px' }} />
+            <div className="service-grid-card">
+              <div className="service-card-img-container">
+                <img src="/srv-boite.webp" alt="Boîte à eau" className="service-card-img" />
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', order: window.innerWidth < 768 ? 2 : 1 }}>
-                <h3 style={{ fontSize: '2.2rem', color: '#111827', margin: 0, lineHeight: '1.2' }}>Boîte à eau et descente pluviale en aluminium</h3>
-                <div style={{ width: '50px', height: '4px', backgroundColor: 'var(--color-primary)', borderRadius: '2px' }}></div>
-                <p style={{ color: '#4b5563', fontSize: '1.15rem', lineHeight: '1.8' }}>
+              <div className="service-card-content">
+                <h3 className="service-card-title">Boîte à eau et descente pluviale en aluminium</h3>
+                <div className="service-card-divider"></div>
+                <p className="service-card-text">
                   La boîte à eau permet de collecter et de diriger efficacement les eaux pluviales vers les descentes, tout en évitant les débordements. Elle est disponible en plusieurs formes et dimensions, avec des finitions laquées ou anodisées qui s’harmonisent parfaitement avec l’esthétique de la façade.
                 </p>
               </div>
             </div>
 
             {/* Service 4 */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '50px', alignItems: 'center', backgroundColor: '#ffffff', padding: '40px', borderRadius: '24px', border: '1px solid #f3f4f6', boxShadow: '0 20px 40px rgba(0,0,0,0.04)' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', order: window.innerWidth < 768 ? 2 : 0 }}>
-                <h3 style={{ fontSize: '2.2rem', color: '#111827', margin: 0, lineHeight: '1.2' }}>Appui de fenêtre en aluminium</h3>
-                <div style={{ width: '50px', height: '4px', backgroundColor: 'var(--color-primary)', borderRadius: '2px' }}></div>
-                <p style={{ color: '#4b5563', fontSize: '1.15rem', lineHeight: '1.8' }}>
+            <div className="service-grid-card">
+              <div className="service-card-img-container">
+                <img src="/srv-appui.webp" alt="Appui de fenêtre" className="service-card-img" />
+              </div>
+              <div className="service-card-content">
+                <h3 className="service-card-title">Appui de fenêtre en aluminium</h3>
+                <div className="service-card-divider"></div>
+                <p className="service-card-text">
                   Conçu en aluminium, ce dispositif se distingue par sa légèreté, sa robustesse et sa résistance à la corrosion, garantissant une longue durée de vie sans entretien particulier.
                 </p>
-              </div>
-              <div style={{ order: window.innerWidth < 768 ? 1 : 1 }}>
-                <img src="/srv-appui.webp" alt="Appui de fenêtre" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', maxHeight: '400px' }} />
               </div>
             </div>
 
             {/* Service 5 */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '50px', alignItems: 'center', backgroundColor: '#ffffff', padding: '40px', borderRadius: '24px', border: '1px solid #f3f4f6', boxShadow: '0 20px 40px rgba(0,0,0,0.04)' }}>
-              <div style={{ order: window.innerWidth < 768 ? 1 : 0 }}>
-                <img src="/srv-etancheite.webp" alt="Étanchéité" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', maxHeight: '400px' }} />
+            <div className="service-grid-card">
+              <div className="service-card-img-container">
+                <img src="/srv-etancheite.webp" alt="Étanchéité" className="service-card-img" />
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', order: window.innerWidth < 768 ? 2 : 1 }}>
-                <h3 style={{ fontSize: '2.2rem', color: '#111827', margin: 0, lineHeight: '1.2' }}>Étanchéité</h3>
-                <div style={{ width: '50px', height: '4px', backgroundColor: 'var(--color-primary)', borderRadius: '2px' }}></div>
-                <p style={{ color: '#4b5563', fontSize: '1.15rem', lineHeight: '1.8' }}>
+              <div className="service-card-content">
+                <h3 className="service-card-title">Étanchéité</h3>
+                <div className="service-card-divider"></div>
+                <p className="service-card-text">
                   Elle joue un rôle essentiel dans le domaine de la construction, de l’industrie et des systèmes hydrauliques, garantissant la durabilité et la sécurité des bâtiments et équipements.
                 </p>
               </div>
