@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Quote, Star, Layers, Building2, Droplets, PenTool } from 'lucide-react';
+import AnimatedStats from '../components/AnimatedStats';
 
 export default function Home() {
   return (
@@ -19,7 +20,6 @@ export default function Home() {
         <div className="hero-overlay"></div>
         
         <div className="hero-content">
-          <div className="hero-badge">Qualité, Design et Durabilité Réunies</div>
           <h1 className="hero-title" style={{ fontSize: 'clamp(2rem, 5vw, 4rem)'}}>
              L’Aluminium, <span className="highlight">l’Élégance</span> et la Protection Durable
           </h1>
@@ -39,114 +39,173 @@ export default function Home() {
       </header>
 
       {/* Stats Section */}
-      <section className="stats-section" style={{ padding: '60px 0', backgroundColor: 'var(--color-bg-secondary)', borderBottom: '1px solid var(--color-border)' }}>
-        <div className="container" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', gap: '20px', textAlign: 'center' }}>
-          <div>
-            <h3 style={{ fontSize: '2.5rem', color: 'var(--color-primary)' }}>320</h3>
-            <p style={{ color: 'var(--color-text-muted)' }}>Projets réussis</p>
-          </div>
-          <div>
-            <h3 style={{ fontSize: '2.5rem', color: 'var(--color-primary)' }}>7</h3>
-            <p style={{ color: 'var(--color-text-muted)' }}>Membres d'équipe professionnelle</p>
-          </div>
-          <div>
-            <h3 style={{ fontSize: '2.5rem', color: 'var(--color-primary)' }}>180+</h3>
-            <p style={{ color: 'var(--color-text-muted)' }}>Clients satisfaits</p>
-          </div>
-          <div>
-            <h3 style={{ fontSize: '2.5rem', color: 'var(--color-primary)' }}>10+</h3>
-            <p style={{ color: 'var(--color-text-muted)' }}>Années d'expérience</p>
-          </div>
-        </div>
-      </section>
+      <AnimatedStats />
 
       {/* About Teaser */}
-      <section className="about-section">
-        <div className="container about-container">
-          <div className="about-image-wrapper">
-            <div className="about-image-shape"></div>
-            <div className="about-image-placeholder">
-               <img src="/about-photo.webp" alt="Couvertine" className="about-inner-img" />
+      <section style={{ padding: '100px 0', backgroundColor: '#ffffff', color: '#202124' }}>
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '60px', alignItems: 'center' }}>
+            {/* Collage Images */}
+            <div style={{ position: 'relative', width: '100%', aspectRatio: '1/1', minHeight: '450px' }}>
+              {/* Top Left - Large House */}
+              <div style={{ position: 'absolute', top: '0', left: '0', width: '65%', height: '60%', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', zIndex: 1, backgroundColor: '#f3f4f6' }}>
+                <img src="/about-1.webp" alt="Projet Couvertine" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
+              {/* Top Right - Worker */}
+              <div style={{ position: 'absolute', top: '5%', right: '5%', width: '38%', height: '42%', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.2)', zIndex: 3, border: '6px solid #ffffff', backgroundColor: '#f3f4f6' }}>
+                <img src="/about-2.webp" alt="Technicien Couvertine" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
+              {/* Bottom Right - Team */}
+              <div style={{ position: 'absolute', bottom: '0', right: '0', width: '65%', height: '60%', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', zIndex: 2, backgroundColor: '#f3f4f6' }}>
+                <img src="/about-4.webp" alt="Équipe Couvertine" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
+              {/* Bottom Left - Van */}
+              <div style={{ position: 'absolute', bottom: '10%', left: '5%', width: '40%', height: '42%', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.2)', zIndex: 3, border: '6px solid #ffffff', backgroundColor: '#f3f4f6' }}>
+                <img src="/about-3.webp" alt="Intervention Rapide" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
             </div>
-          </div>
-          <div className="about-content">
-            <h2 className="section-title" style={{textAlign: 'left'}}>À propos de Couvertine Aluminium Maroc</h2>
-            <p className="about-text">
-              Spécialisée dans la fabrication et la pose d’éléments en aluminium, notre société accompagne 
-              particuliers et professionnels dans tous leurs projets. Notre mission : allier <strong>résistance</strong>, 
-              <strong> design</strong> et <strong>durabilité</strong> au service de vos bâtiments.
-            </p>
-            
-            <ul className="about-list">
-              <li><CheckCircle size={20} className="list-icon" /> Expérience et savoir-faire</li>
-              <li><CheckCircle size={20} className="list-icon" /> Garantie de satisfaction à 100 %</li>
-              <li><CheckCircle size={20} className="list-icon" /> Équipe professionnelle</li>
-              <li><CheckCircle size={20} className="list-icon" /> Intervention nationale</li>
-            </ul>
+
+            {/* Content */}
+            <div>
+              <h2 style={{ textAlign: 'left', color: '#111827', fontSize: '2.8rem', marginBottom: '24px', lineHeight: '1.2', fontWeight: '800' }}>
+                À propos de Couvertine Aluminium Maroc
+              </h2>
+              <p style={{ color: '#4b5563', fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '32px' }}>
+                Spécialisée dans la fabrication et la pose d’éléments en aluminium, notre société accompagne 
+                particuliers et professionnels dans tous leurs projets. Notre mission : allier résistance, 
+                design et durabilité au service de vos bâtiments.
+              </p>
+              
+              <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '1.1rem', color: '#111827', fontWeight: 'bold' }}>
+                  <CheckCircle size={24} color="#ff6b00" /> Expérience et savoir-faire
+                </li>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '1.1rem', color: '#111827', fontWeight: 'bold' }}>
+                  <CheckCircle size={24} color="#ff6b00" /> Garantie de satisfaction à 100 %
+                </li>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '1.1rem', color: '#111827', fontWeight: 'bold' }}>
+                  <CheckCircle size={24} color="#ff6b00" /> Équipe professionnelle
+                </li>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '1.1rem', color: '#111827', fontWeight: 'bold' }}>
+                  <CheckCircle size={24} color="#ff6b00" /> Intervention nationale
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Services Teaser */}
-      <section style={{ padding: '100px 0', backgroundColor: '#ffffff', color: '#202124', borderTop: '1px solid #e5e7eb', borderBottom: '1px solid #e5e7eb' }}>
+      {/* Video Presentation Section */}
+      <section style={{ padding: '100px 0', backgroundColor: 'var(--color-bg-main)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <h2 className="section-title" style={{ color: '#202124', marginBottom: '20px' }}>Nos Services de Haute Qualité</h2>
-            <p style={{ color: '#4b5563', maxWidth: '700px', margin: '0 auto', fontSize: '1.1rem' }}>
-              Nous proposons des solutions sur-mesure en habillage aluminium pour protéger et sublimer vos façades, avec une précision et un savoir-faire inégalés.
+            <h2 className="section-title">Découvrez Couvertine en Vidéo</h2>
+            <p style={{ color: 'var(--color-text-muted)', maxWidth: '700px', margin: '0 auto', fontSize: '1.2rem', lineHeight: '1.6' }}>
+              Plongez au cœur de notre expertise et regardez comment nos profilés en aluminium assurent un design premium et une étanchéité parfaite pour vos bâtiments.
             </p>
           </div>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px', marginBottom: '50px' }}>
-            {/* Service 1 */}
-            <div style={{ padding: '40px 30px', backgroundColor: '#ffffff', border: '1px solid #e5e7eb', borderRadius: '16px', boxShadow: '0 4px 12px rgba(0,0,0,0.03)' }}>
-              <div style={{ width: '64px', height: '64px', borderRadius: '12px', backgroundColor: 'rgba(212, 175, 55, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
-                <Layers size={32} color="var(--color-primary)" />
-              </div>
-              <h3 style={{ fontSize: '1.3rem', color: '#111827', marginBottom: '16px', fontWeight: 'bold' }}>Couvertine sur muret</h3>
-              <p style={{ color: '#4b5563', lineHeight: '1.6' }}>
-                Protection ultime et esthétique pour vos murets de clôture et terrasses, garantissant la fin des infiltrations d'eau.
-              </p>
-            </div>
+          <div style={{ position: 'relative', width: '100%', maxWidth: '1100px', margin: '0 auto' }}>
+            {/* Glow effect */}
+            <div style={{ position: 'absolute', top: '10%', left: '5%', right: '5%', bottom: '-10%', background: 'linear-gradient(135deg, rgba(212,175,55,0.4), rgba(212,175,55,0.1))', filter: 'blur(60px)', zIndex: 0, borderRadius: '50%' }}></div>
             
-            {/* Service 2 */}
-            <div style={{ padding: '40px 30px', backgroundColor: '#ffffff', border: '1px solid #e5e7eb', borderRadius: '16px', boxShadow: '0 4px 12px rgba(0,0,0,0.03)' }}>
-              <div style={{ width: '64px', height: '64px', borderRadius: '12px', backgroundColor: 'rgba(212, 175, 55, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
-                <Building2 size={32} color="var(--color-primary)" />
-              </div>
-              <h3 style={{ fontSize: '1.3rem', color: '#111827', marginBottom: '16px', fontWeight: 'bold' }}>Habillage d'acrotère</h3>
-              <p style={{ color: '#4b5563', lineHeight: '1.6' }}>
-                Une solution idéale pour assurer l’étanchéité de vos toitures-terrasses avec un design épuré et contemporain.
-              </p>
-            </div>
-            
-            {/* Service 3 */}
-            <div style={{ padding: '40px 30px', backgroundColor: '#ffffff', border: '1px solid #e5e7eb', borderRadius: '16px', boxShadow: '0 4px 12px rgba(0,0,0,0.03)' }}>
-              <div style={{ width: '64px', height: '64px', borderRadius: '12px', backgroundColor: 'rgba(212, 175, 55, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
-                <Droplets size={32} color="var(--color-primary)" />
-              </div>
-              <h3 style={{ fontSize: '1.3rem', color: '#111827', marginBottom: '16px', fontWeight: 'bold' }}>Boîtes à eau & descentes</h3>
-              <p style={{ color: '#4b5563', lineHeight: '1.6' }}>
-                Systèmes professionnels de collecte et d’évacuation des eaux pluviales en aluminium : fiables et discrets.
-              </p>
-            </div>
-            
-            {/* Service 4 */}
-            <div style={{ padding: '40px 30px', backgroundColor: '#ffffff', border: '1px solid #e5e7eb', borderRadius: '16px', boxShadow: '0 4px 12px rgba(0,0,0,0.03)' }}>
-              <div style={{ width: '64px', height: '64px', borderRadius: '12px', backgroundColor: 'rgba(212, 175, 55, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
-                <PenTool size={32} color="var(--color-primary)" />
-              </div>
-              <h3 style={{ fontSize: '1.3rem', color: '#111827', marginBottom: '16px', fontWeight: 'bold' }}>Pliage sur mesure</h3>
-              <p style={{ color: '#4b5563', lineHeight: '1.6' }}>
-                Précision millimétrique grâce à notre plieuse pour des pièces adaptées à toutes les complexités de votre chantier.
-              </p>
+            {/* Video Container */}
+            <div style={{ position: 'relative', width: '100%', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.5)', border: '1px solid rgba(212,175,55,0.3)', zIndex: 1, backgroundColor: '#000', aspectRatio: '16/9' }}>
+              <iframe 
+                src="https://www.youtube.com/embed/ZfSzKrKHd-k?rel=0&showinfo=0&modestbranding=1&vq=hd1080" 
+                title="Présentation Couvertine Aluminium Maroc" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowFullScreen
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+              ></iframe>
             </div>
           </div>
-          
-          <div style={{ textAlign: 'center' }}>
-            <Link to="/services" className="btn btn-primary">
-              Parcourir Tous Nos Services <ArrowRight size={16} className="btn-icon" />
-            </Link>
+        </div>
+      </section>
+
+      {/* Main Services Showcase */}
+      <section style={{ padding: '100px 0', backgroundColor: '#f9fafb' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+            <h2 className="section-title">Nos Solutions Sur-Mesure</h2>
+            <p style={{ color: 'var(--color-text-muted)', maxWidth: '800px', margin: '0 auto', fontSize: '1.2rem', lineHeight: '1.6' }}>
+              Découvrez nos prestations haut de gamme en habillage aluminium, conçues pour protéger, isoler et transcender le design de vos bâtiments.
+            </p>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
+            
+            {/* Service 1 */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '50px', alignItems: 'center', backgroundColor: '#ffffff', padding: '40px', borderRadius: '24px', border: '1px solid #f3f4f6', boxShadow: '0 20px 40px rgba(0,0,0,0.04)' }}>
+              <div style={{ order: window.innerWidth < 768 ? 1 : 0 }}>
+                <img src="/srv-couvertine.webp" alt="Couvertine" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', maxHeight: '400px' }} />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', order: window.innerWidth < 768 ? 2 : 1 }}>
+                <h3 style={{ fontSize: '2.2rem', color: '#111827', margin: 0, lineHeight: '1.2' }}>Couvertine en aluminium 10/10ème</h3>
+                <div style={{ width: '50px', height: '4px', backgroundColor: 'var(--color-primary)', borderRadius: '2px' }}></div>
+                <p style={{ color: '#4b5563', fontSize: '1.15rem', lineHeight: '1.8' }}>
+                  Cette couvertine se distingue par sa résistance à la corrosion et aux variations climatiques, assurant une durabilité accrue sans nécessiter d’entretien régulier. Disponible en plusieurs finitions et coloris, souvent avec un revêtement laqué, elle s’intègre harmonieusement à l’esthétique de tous types de constructions.
+                </p>
+              </div>
+            </div>
+
+            {/* Service 2 */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '50px', alignItems: 'center', backgroundColor: '#ffffff', padding: '40px', borderRadius: '24px', border: '1px solid #f3f4f6', boxShadow: '0 20px 40px rgba(0,0,0,0.04)' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', order: window.innerWidth < 768 ? 2 : 0 }}>
+                <h3 style={{ fontSize: '2.2rem', color: '#111827', margin: 0, lineHeight: '1.2' }}>Lambris en aluminium / Façades</h3>
+                <div style={{ width: '50px', height: '4px', backgroundColor: 'var(--color-primary)', borderRadius: '2px' }}></div>
+                <p style={{ color: '#4b5563', fontSize: '1.15rem', lineHeight: '1.8' }}>
+                  Idéal pour habiller les murs et les plafonds aussi bien en intérieur qu’en extérieur. Conçu à partir d’aluminium haute qualité, il se distingue par sa résistance exceptionnelle aux intempéries, à l’humidité et à la corrosion, en faisant un choix parfait pour les environnements exposés comme les façades, les sous-toitures et les vérandas.
+                </p>
+              </div>
+              <div style={{ order: window.innerWidth < 768 ? 1 : 1 }}>
+                <img src="/srv-lambris.webp" alt="Lambris" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', maxHeight: '400px' }} />
+              </div>
+            </div>
+
+            {/* Service 3 */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '50px', alignItems: 'center', backgroundColor: '#ffffff', padding: '40px', borderRadius: '24px', border: '1px solid #f3f4f6', boxShadow: '0 20px 40px rgba(0,0,0,0.04)' }}>
+              <div style={{ order: window.innerWidth < 768 ? 1 : 0 }}>
+                <img src="/srv-boite.webp" alt="Boîte à eau" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', maxHeight: '400px' }} />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', order: window.innerWidth < 768 ? 2 : 1 }}>
+                <h3 style={{ fontSize: '2.2rem', color: '#111827', margin: 0, lineHeight: '1.2' }}>Boîte à eau et descente pluviale en aluminium</h3>
+                <div style={{ width: '50px', height: '4px', backgroundColor: 'var(--color-primary)', borderRadius: '2px' }}></div>
+                <p style={{ color: '#4b5563', fontSize: '1.15rem', lineHeight: '1.8' }}>
+                  La boîte à eau permet de collecter et de diriger efficacement les eaux pluviales vers les descentes, tout en évitant les débordements. Elle est disponible en plusieurs formes et dimensions, avec des finitions laquées ou anodisées qui s’harmonisent parfaitement avec l’esthétique de la façade.
+                </p>
+              </div>
+            </div>
+
+            {/* Service 4 */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '50px', alignItems: 'center', backgroundColor: '#ffffff', padding: '40px', borderRadius: '24px', border: '1px solid #f3f4f6', boxShadow: '0 20px 40px rgba(0,0,0,0.04)' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', order: window.innerWidth < 768 ? 2 : 0 }}>
+                <h3 style={{ fontSize: '2.2rem', color: '#111827', margin: 0, lineHeight: '1.2' }}>Appui de fenêtre en aluminium</h3>
+                <div style={{ width: '50px', height: '4px', backgroundColor: 'var(--color-primary)', borderRadius: '2px' }}></div>
+                <p style={{ color: '#4b5563', fontSize: '1.15rem', lineHeight: '1.8' }}>
+                  Conçu en aluminium, ce dispositif se distingue par sa légèreté, sa robustesse et sa résistance à la corrosion, garantissant une longue durée de vie sans entretien particulier.
+                </p>
+              </div>
+              <div style={{ order: window.innerWidth < 768 ? 1 : 1 }}>
+                <img src="/srv-appui.webp" alt="Appui de fenêtre" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', maxHeight: '400px' }} />
+              </div>
+            </div>
+
+            {/* Service 5 */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '50px', alignItems: 'center', backgroundColor: '#ffffff', padding: '40px', borderRadius: '24px', border: '1px solid #f3f4f6', boxShadow: '0 20px 40px rgba(0,0,0,0.04)' }}>
+              <div style={{ order: window.innerWidth < 768 ? 1 : 0 }}>
+                <img src="/srv-etancheite.webp" alt="Étanchéité" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', maxHeight: '400px' }} />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', order: window.innerWidth < 768 ? 2 : 1 }}>
+                <h3 style={{ fontSize: '2.2rem', color: '#111827', margin: 0, lineHeight: '1.2' }}>Étanchéité</h3>
+                <div style={{ width: '50px', height: '4px', backgroundColor: 'var(--color-primary)', borderRadius: '2px' }}></div>
+                <p style={{ color: '#4b5563', fontSize: '1.15rem', lineHeight: '1.8' }}>
+                  Elle joue un rôle essentiel dans le domaine de la construction, de l’industrie et des systèmes hydrauliques, garantissant la durabilité et la sécurité des bâtiments et équipements.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

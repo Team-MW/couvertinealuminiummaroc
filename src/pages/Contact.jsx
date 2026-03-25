@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
+import AnimatedStats from '../components/AnimatedStats';
 
 export default function Contact() {
   return (
@@ -8,6 +9,8 @@ export default function Contact() {
         <h1 className="section-title">Nous contacter</h1>
         <p style={{ color: 'var(--color-text-muted)' }}>Obtenez une consultation gratuite et un devis personnalisé.</p>
       </div>
+      
+      <AnimatedStats />
 
       <section className="contact-section" style={{ minHeight: '60vh' }}>
         <div className="container">

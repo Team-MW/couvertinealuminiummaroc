@@ -1,5 +1,5 @@
 import React from 'react';
-import { Target, Factory, Wrench } from 'lucide-react';
+import { Target, Factory, Wrench, CheckCircle } from 'lucide-react';
 
 export default function About() {
   return (
@@ -8,6 +8,7 @@ export default function About() {
         <h1 className="section-title">Qui Sommes Nous?</h1>
         <p style={{ color: 'var(--color-text-muted)' }}>Votre spécialiste marocain des solutions en aluminium sur mesure</p>
       </div>
+      
 
       <section style={{ padding: '80px 0' }}>
         <div className="container">
@@ -58,23 +59,51 @@ export default function About() {
       </section>
       
       <section style={{ padding: '100px 0' }}>
-        <div className="container" style={{ textAlign: 'center', maxWidth: '800px' }}>
-          <h2 className="section-title">Nos valeurs et nos engagements</h2>
-          <p style={{ color: 'var(--color-text-muted)', marginBottom: '40px' }}>
-            Chez Couvertine Aluminium Maroc, nous croyons que chaque projet mérite une attention particulière. C’est pourquoi nous nous engageons à :
-          </p>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', textAlign: 'left' }}>
-            <div style={{ padding: '20px', borderLeft: '3px solid var(--color-primary)', backgroundColor: 'var(--color-bg-secondary)' }}>
-               <strong>1.</strong> Fournir un travail de qualité supérieure
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '60px', alignItems: 'center' }}>
+            {/* Left: Text & List */}
+            <div style={{ textAlign: 'left' }}>
+              <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '24px' }}>Nos valeurs et nos engagements</h2>
+              <p style={{ color: 'var(--color-text-muted)', marginBottom: '32px', fontSize: '1.2rem', lineHeight: '1.6' }}>
+                Chez Couvertine Aluminium Maroc, nous croyons que chaque projet mérite une attention particulière. C’est pourquoi nous nous engageons à :
+              </p>
+              
+              <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '1.2rem', fontWeight: '500' }}>
+                  <div style={{ backgroundColor: 'rgba(212,175,55,0.1)', padding: '10px', borderRadius: '50%', color: 'var(--color-primary)' }}>
+                    <CheckCircle size={24} />
+                  </div>
+                  Fournir un travail de qualité supérieure
+                </li>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '1.2rem', fontWeight: '500' }}>
+                  <div style={{ backgroundColor: 'rgba(212,175,55,0.1)', padding: '10px', borderRadius: '50%', color: 'var(--color-primary)' }}>
+                    <CheckCircle size={24} />
+                  </div>
+                  Assurer un accompagnement personnalisé
+                </li>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '1.2rem', fontWeight: '500' }}>
+                  <div style={{ backgroundColor: 'rgba(212,175,55,0.1)', padding: '10px', borderRadius: '50%', color: 'var(--color-primary)' }}>
+                    <CheckCircle size={24} />
+                  </div>
+                  Respecter les délais
+                </li>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '1.2rem', fontWeight: '500' }}>
+                  <div style={{ backgroundColor: 'rgba(212,175,55,0.1)', padding: '10px', borderRadius: '50%', color: 'var(--color-primary)' }}>
+                    <CheckCircle size={24} />
+                  </div>
+                  Promouvoir la fabrication locale
+                </li>
+              </ul>
             </div>
-            <div style={{ padding: '20px', borderLeft: '3px solid var(--color-primary)', backgroundColor: 'var(--color-bg-secondary)' }}>
-               <strong>2.</strong> Assurer un accompagnement personnalisé
-            </div>
-            <div style={{ padding: '20px', borderLeft: '3px solid var(--color-primary)', backgroundColor: 'var(--color-bg-secondary)' }}>
-               <strong>3.</strong> Respecter les délais
-            </div>
-            <div style={{ padding: '20px', borderLeft: '3px solid var(--color-primary)', backgroundColor: 'var(--color-bg-secondary)' }}>
-               <strong>4.</strong> Promouvoir la fabrication locale
+
+            {/* Right: Image */}
+            <div style={{ position: 'relative' }}>
+              <div style={{ position: 'absolute', top: '10%', left: '10%', width: '100%', height: '100%', backgroundColor: 'var(--color-primary)', borderRadius: '24px', zIndex: 0, opacity: 0.1 }}></div>
+              <img 
+                src="/about-values.webp" 
+                alt="Nos Engagements Couvertine Aluminium" 
+                style={{ width: '100%', borderRadius: '24px', boxShadow: '0 20px 40px rgba(0,0,0,0.3)', position: 'relative', zIndex: 1, objectFit: 'cover' }} 
+              />
             </div>
           </div>
         </div>

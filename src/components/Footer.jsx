@@ -42,9 +42,9 @@ export default function Footer() {
         <div className="container">
           <p>&copy; {new Date().getFullYear()} Couvertine Aluminium Maroc. Tous droits réservés.</p>
           <p style={{ marginTop: '8px', fontSize: '0.8rem', opacity: 0.7 }}>
-            <Link to="/contact" style={{marginRight: '12px'}}>Mentions légales</Link> 
-            <Link to="/contact" style={{marginRight: '12px'}}>Politique de confidentialité</Link> 
-            <Link to="/contact">Conditions d’utilisation</Link>
+            <Link to="/mentions-legales" style={{marginRight: '12px'}}>Mentions légales</Link> 
+            <Link to="/politique-confidentialite" style={{marginRight: '12px'}}>Politique de confidentialité</Link> 
+            <Link to="/mentions-legales">Conditions d’utilisation</Link>
           </p>
         </div>
       </div>
