@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import AnimatedStats from '../components/AnimatedStats';
 
 export default function Galerie() {
   const images = [
@@ -26,7 +25,6 @@ export default function Galerie() {
         <p style={{ color: 'var(--color-text-muted)' }}>Nos dernières réalisations d'habillage en aluminium partout au Maroc</p>
       </div>
       
-      <AnimatedStats />
 
       <section style={{ padding: '80px 0' }}>
         <div className="container">

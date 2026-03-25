@@ -1,6 +1,5 @@
 import React from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
-import AnimatedStats from '../components/AnimatedStats';
 
 export default function Contact() {
   return (
@@ -10,8 +9,25 @@ export default function Contact() {
         <p style={{ color: 'var(--color-text-muted)' }}>Obtenez une consultation gratuite et un devis personnalisé.</p>
       </div>
       
-      <AnimatedStats />
-
+      <section style={{ padding: '60px 0', backgroundColor: 'var(--color-bg-secondary)', borderBottom: '1px solid var(--color-border)', borderTop: '1px solid var(--color-border)' }}>
+        <div className="container" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', gap: '30px', textAlign: 'center' }}>
+          <div>
+            <div style={{ color: 'var(--color-primary)', marginBottom: '12px' }}><MapPin size={32} /></div>
+            <h4 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Notre adresse</h4>
+            <p style={{ color: 'var(--color-text-muted)', margin: 0 }}>KM 20 route de Fes à Marrakech</p>
+          </div>
+          <div>
+            <div style={{ color: 'var(--color-primary)', marginBottom: '12px' }}><Phone size={32} /></div>
+            <h4 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Numéro de téléphone</h4>
+            <p style={{ color: 'var(--color-text-muted)', margin: 0 }}>+212 661 562 140</p>
+          </div>
+          <div>
+            <div style={{ color: 'var(--color-primary)', marginBottom: '12px' }}><Mail size={32} /></div>
+            <h4 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Adresse E-mail</h4>
+            <p style={{ color: 'var(--color-text-muted)', margin: 0 }}>couvertinealuminiummaroc@gmail.com</p>
+          </div>
+        </div>
+      </section>
       <section className="contact-section" style={{ minHeight: '60vh' }}>
         <div className="container">
           <div className="contact-card">
