@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -11,38 +11,34 @@ import Contact from './pages/Contact';
 import Galerie from './pages/Galerie';
 import WhatsAppButton from './components/WhatsAppButton';
 import ScrollToTop from './components/ScrollToTop';
+import Preloader from './components/Preloader';
 import './App.css';
 
-function App() {
-  const [loading, setLoading] = useState(true);
-  const [fade, setFade] = useState(false);
+// Component to handle route-based loading
+const AppContent = () => {
+  const location = useLocation();
+  const [isPageLoading, setIsPageLoading] = useState(true);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   useEffect(() => {
-    // Start fading out the loader after 1.5 seconds
-    const timer1 = setTimeout(() => {
-      setFade(true);
-    }, 1500);
+    // Show loader on route change
+    setIsPageLoading(true);
     
-    // Remove the loader entirely after the fade transition finishes (0.5s)
-    const timer2 = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
+    // Duration: 1.5s for initial, 800ms for subsequent transitions
+    const duration = isInitialLoad ? 2200 : 800;
     
-    return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
-    };
-  }, []);
+    const timer = setTimeout(() => {
+      setIsPageLoading(false);
+      if (isInitialLoad) setIsInitialLoad(false);
+    }, duration);
+
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
 
   return (
-    <Router>
-      <ScrollToTop />
-      {loading && (
-        <div className={`global-loader ${fade ? 'loader-fade-out' : ''}`}>
-          <div className="custom-spinner"></div>
-        </div>
-      )}
-      <div className="app-container">
+    <>
+      <Preloader duration={isInitialLoad ? 2200 : 800} isTriggered={isPageLoading} />
+      <div className={`app-container ${!isPageLoading ? 'loaded' : ''}`}>
         <Navbar />
         <main className="main-content">
           <Routes>
@@ -58,8 +54,18 @@ function App() {
         <Footer />
         <WhatsAppButton />
       </div>
+    </>
+  );
+};
+
+function App() {
+  return (
+    <Router>
+      <ScrollToTop />
+      <AppContent />
     </Router>
   );
 }
 
 export default App;
+

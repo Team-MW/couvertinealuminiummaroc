@@ -1,14 +1,17 @@
 import React from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import FAQ from '../components/FAQ';
+import PageHeader from '../components/PageHeader';
 
 export default function Contact() {
   return (
     <>
-      <div style={{ paddingTop: '120px', paddingBottom: '60px', backgroundColor: 'var(--color-bg-secondary)', textAlign: 'center' }}>
-        <h1 className="section-title">Nous contacter</h1>
-        <p style={{ color: 'var(--color-text-muted)' }}>Obtenez une consultation gratuite et un devis personnalisé.</p>
-      </div>
+      <PageHeader 
+        title="Nous contacter" 
+        subtitle="Obtenez une consultation gratuite et un devis personnalisé." 
+        startTime={55}
+      />
+
       
       <section style={{ padding: '60px 0', backgroundColor: 'var(--color-bg-secondary)', borderBottom: '1px solid var(--color-border)', borderTop: '1px solid var(--color-border)' }}>
         <div className="container contact-info-bar">

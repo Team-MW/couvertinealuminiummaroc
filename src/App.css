@@ -4,7 +4,14 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
+
+.app-container.loaded {
+  opacity: 1;
+}
+
 
 /* Navbar */
 .navbar {
@@ -666,7 +673,12 @@
     gap: 30px;
   }
 }
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+.page-fade-in {
+  animation: fadeIn 1s ease-out forwards;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+

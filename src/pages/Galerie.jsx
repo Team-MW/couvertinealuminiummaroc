@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FAQ from '../components/FAQ';
+import PageHeader from '../components/PageHeader';
 
 export default function Galerie() {
   const images = [
@@ -21,10 +22,11 @@ export default function Galerie() {
 
   return (
     <>
-      <div style={{ paddingTop: '120px', paddingBottom: '60px', backgroundColor: 'var(--color-bg-secondary)', textAlign: 'center' }}>
-        <h1 className="section-title">Galerie Photos</h1>
-        <p style={{ color: 'var(--color-text-muted)' }}>Nos dernières réalisations d'habillage en aluminium partout au Maroc</p>
-      </div>
+      <PageHeader 
+        title="Galerie Photos" 
+        subtitle="Nos dernières réalisations d'habillage en aluminium partout au Maroc" 
+        startTime={80}
+      />
       
 
       <section style={{ padding: '80px 0' }}>

@@ -3,6 +3,7 @@ import { Package, Maximize, Droplet, LayoutPanelTop, Shield, ArrowRight, CheckCi
 import { Link } from 'react-router-dom';
 import AnimatedStats from '../components/AnimatedStats';
 import FAQ from '../components/FAQ';
+import PageHeader from '../components/PageHeader';
 
 export default function Services() {
   const services = [
@@ -14,7 +15,7 @@ export default function Services() {
       details: [
         "Résistance exceptionnelle à la corrosion",
         "Durabilité accrue sans entretien régulier",
-        "Disponible en plusieurs finitions laquées"
+        "Disponible en several finitions laquées"
       ]
     },
     {
@@ -43,7 +44,7 @@ export default function Services() {
       id: "appui",
       icon: <Package size={40} />,
       title: "Appui de fenêtre en aluminium",
-      desc: "Conçu en aluminium, ce dispositif se distingue par sa légèreté, sa robustesse et sa résistance à la corrosion pour habiller vos rebords de fenêtres.",
+      desc: "Conçu en aluminium, ce dispositif se distingue par sa légèreté, sa robustesse and sa résistance à la corrosion pour habiller vos rebords de fenêtres.",
       details: [
         "Léger et ultra-robuste",
         "Évacuation parfaite de l'eau",
@@ -69,10 +70,11 @@ export default function Services() {
 
   return (
     <>
-      <div style={{ paddingTop: '120px', paddingBottom: '60px', backgroundColor: 'var(--color-bg-secondary)', textAlign: 'center' }}>
-        <h1 className="section-title">Nos Services & Expertises</h1>
-        <p style={{ color: 'var(--color-text-muted)', maxWidth: '700px', margin: '0 auto', fontSize: '1.2rem', lineHeight: '1.6' }}>Des solutions d’habillage sur-mesure en aluminium pour protéger, isoler et sublimer tous vos bâtiments à travers le Maroc.</p>
-      </div>
+      <PageHeader 
+        title="Nos Services & Expertises" 
+        subtitle="Des solutions d’habillage sur-mesure en aluminium pour protéger, isoler et sublimer tous vos bâtiments à travers le Maroc." 
+        startTime={35}
+      />
 
       <AnimatedStats />
 

@@ -1,14 +1,17 @@
 import React from 'react';
 import { Target, Factory, Wrench, CheckCircle } from 'lucide-react';
 import FAQ from '../components/FAQ';
+import PageHeader from '../components/PageHeader';
 
 export default function About() {
   return (
     <>
-      <div style={{ paddingTop: '120px', paddingBottom: '60px', backgroundColor: 'var(--color-bg-secondary)', textAlign: 'center' }}>
-        <h1 className="section-title">Qui Sommes Nous?</h1>
-        <p style={{ color: 'var(--color-text-muted)' }}>Votre spécialiste marocain des solutions en aluminium sur mesure</p>
-      </div>
+      <PageHeader 
+        title="Qui Sommes Nous?" 
+        subtitle="Votre spécialiste marocain des solutions en aluminium sur mesure" 
+        startTime={15}
+      />
+
       
 
       <section style={{ padding: '80px 0' }}>

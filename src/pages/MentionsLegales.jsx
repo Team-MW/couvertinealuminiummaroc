@@ -1,12 +1,15 @@
 import React from 'react';
+import PageHeader from '../components/PageHeader';
 
 export default function MentionsLegales() {
   return (
     <>
-      <div style={{ paddingTop: '120px', paddingBottom: '60px', backgroundColor: 'var(--color-bg-secondary)', textAlign: 'center' }}>
-        <h1 className="section-title">Mentions Légales</h1>
-        <p style={{ color: 'var(--color-text-muted)' }}>Informations légales concernant le site et l'entreprise</p>
-      </div>
+      <PageHeader 
+        title="Mentions Légales" 
+        subtitle="Informations légales concernant le site et l'entreprise" 
+        startTime={110}
+      />
+
 
       <section style={{ padding: '80px 0', color: 'var(--color-text-main)' }}>
         <div className="container" style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '40px' }}>
