@@ -83,13 +83,22 @@ export default function Services() {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '40px' }}>
             {services.map((srv, idx) => (
-              <div key={srv.id} style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: '30px', backgroundColor: 'var(--color-bg-secondary)', padding: '50px', borderRadius: '24px', border: '1px solid var(--color-border)', boxShadow: '0 10px 40px rgba(0,0,0,0.2)' }}>
+              <div key={srv.id} style={{ 
+                display: 'grid', 
+                gridTemplateColumns: 'minmax(0, 1fr)', 
+                gap: '30px', 
+                backgroundColor: 'var(--color-bg-secondary)', 
+                padding: 'clamp(24px, 5vw, 50px)', 
+                borderRadius: '24px', 
+                border: '1px solid var(--color-border)', 
+                boxShadow: '0 10px 40px rgba(0,0,0,0.2)' 
+              }}>
                 <div style={{ display: 'flex', gap: '30px', flexDirection: 'column' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-                    <div style={{ color: 'var(--color-primary)', background: 'rgba(212,175,55,0.1)', padding: '24px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <div className="service-header-mobile-stack" style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
+                    <div style={{ color: 'var(--color-primary)', background: 'rgba(255, 204, 0, 0.1)', padding: '20px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                       {srv.icon}
                     </div>
-                    <h3 style={{ fontSize: '2rem', margin: 0 }}>{srv.title}</h3>
+                    <h3 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', margin: 0, lineHeight: '1.2' }}>{srv.title}</h3>
                   </div>
                   
                   <p style={{ color: 'var(--color-text-muted)', fontSize: '1.2rem', lineHeight: '1.8' }}>
@@ -136,25 +145,93 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Colors Section */}
-      <section style={{ padding: '100px 0', backgroundColor: 'var(--color-bg-secondary)', borderTop: '1px solid var(--color-border)' }}>
-        <div className="container">
-          <h2 className="section-title">Nos Couleurs & Finitions</h2>
-          <p style={{ textAlign: 'center', color: 'var(--color-text-muted)', maxWidth: '700px', margin: '0 auto 50px', fontSize: '1.2rem', lineHeight: '1.6' }}>
-            Personnalisez vos éléments à l'infini : Choisissez parmi un large nuancier de teintes modernes et intemporelles pour harmoniser votre projet. Nos finitions sont disponibles en mat, brillant, sablé ou imitation bois.
+      {/* Colors Section - Stylish Yellow Version */}
+      <section style={{ 
+        padding: '120px 0', 
+        backgroundColor: '#ffcc00', 
+        position: 'relative',
+        overflow: 'hidden',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}>
+        {/* Large Watermark Text */}
+        <div style={{ 
+          position: 'absolute', 
+          top: '50%', 
+          left: '50%', 
+          transform: 'translate(-50%, -50%)', 
+          fontSize: 'clamp(5rem, 18vw, 15rem)', 
+          fontWeight: '900', 
+          color: 'rgba(0,0,0,0.05)', 
+          whiteSpace: 'nowrap',
+          zIndex: 0,
+          pointerEvents: 'none',
+          fontFamily: 'var(--font-display)',
+          letterSpacing: '-5px'
+        }}>
+          COULEURS
+        </div>
+
+        <div className="container" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
+          <h2 className="section-title" style={{ 
+            color: '#000', 
+            fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', 
+            fontWeight: '950', 
+            textTransform: 'uppercase',
+            marginBottom: '20px',
+            lineHeight: '0.9',
+            letterSpacing: '-2px'
+          }}>
+            Nos Couleurs <br />& Finitions
+          </h2>
+          
+          <p style={{ 
+            color: '#000', 
+            maxWidth: '650px', 
+            margin: '0 auto 60px', 
+            fontSize: '1.2rem', 
+            lineHeight: '1.4', 
+            fontWeight: '600' 
+          }}>
+            Personnalisez vos éléments à l'infini : Choisissez parmi un large nuancier de teintes modernes et intemporelles pour harmoniser votre projet.
           </p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', justifyContent: 'center', maxWidth: '900px', margin: '0 auto' }}>
+
+          <div style={{ 
+            display: 'flex', 
+            flexWrap: 'wrap', 
+            gap: '10px', 
+            justifyContent: 'center', 
+            maxWidth: '1000px', 
+            margin: '0 auto',
+            padding: '0 10px'
+          }}>
             {colors.map(color => (
-              <span key={color} style={{ padding: '14px 24px', border: '1px solid var(--color-border)', borderRadius: '30px', backgroundColor: 'var(--color-bg-main)', fontSize: '1.1rem', fontWeight: '500', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
+              <span key={color} className="color-badge-stylish" style={{ 
+                padding: '10px 20px', 
+                backgroundColor: '#000', 
+                borderRadius: '50px', 
+                color: '#ffcc00',
+                fontSize: 'clamp(0.8rem, 2vw, 0.95rem)', 
+                fontWeight: '800', 
+                textTransform: 'uppercase',
+                boxShadow: '0 10px 20px rgba(0,0,0,0.15)',
+                cursor: 'default',
+                transition: 'transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+              }}>
                 {color}
               </span>
             ))}
+          </div>
+
+          <div style={{ marginTop: '40px', color: '#000', fontWeight: '700', fontSize: '0.9rem', opacity: 0.8 }}>
+            DISPONIBLES EN MAT, BRILLANT, SABLÉ OU IMITATION BOIS
           </div>
         </div>
       </section>
       
       {/* CTA */}
-      <section style={{ padding: '100px 0', textAlign: 'center', background: 'linear-gradient(to top, rgba(212, 175, 55, 0.05), transparent)' }}>
+      <section style={{ padding: '100px 0', textAlign: 'center', background: 'linear-gradient(to top, rgba(255, 204, 0, 0.05), transparent)' }}>
         <div className="container">
           <h2 style={{ fontSize: '2.5rem', marginBottom: '30px' }}>Vous avez un projet en tête ?</h2>
           <p style={{ color: 'var(--color-text-muted)', fontSize: '1.2rem', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px' }}>

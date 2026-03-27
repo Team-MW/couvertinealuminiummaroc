@@ -59,7 +59,7 @@ const Preloader = ({ duration = 2800, isTriggered = true }) => {
         <div style={{
           width: '200px',
           height: '1px',
-          backgroundColor: 'rgba(212, 175, 55, 0.1)',
+          backgroundColor: 'rgba(255, 204, 0, 0.1)',
           position: 'relative',
           overflow: 'hidden',
           marginBottom: '15px',
@@ -73,13 +73,13 @@ const Preloader = ({ duration = 2800, isTriggered = true }) => {
             animation: 'shimmer 1.5s infinite cubic-bezier(0.445, 0.05, 0.55, 0.95)'
           }}></div>
         </div>
-        <p style={{ fontSize: '0.7rem', letterSpacing: '3px', textTransform: 'uppercase', color: 'rgba(212,175,55,0.7)', fontWeight: '600' }}>Couvertine Aluminium Maroc</p>
+        <p style={{ fontSize: '0.7rem', letterSpacing: '3px', textTransform: 'uppercase', color: 'rgba(255, 204, 0, 0.7)', fontWeight: '600' }}>Couvertine Aluminium Maroc</p>
       </div>
 
       <style>{`
         @keyframes pulseGlow {
-          0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(212,175,55,0)); }
-          50% { transform: scale(1.05); filter: drop-shadow(0 0 15px rgba(212,175,55,0.3)); }
+          0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(255, 204, 0, 0)); }
+          50% { transform: scale(1.05); filter: drop-shadow(0 0 15px rgba(255, 204, 0, 0.3)); }
         }
         @keyframes shimmer {
           0% { left: -100%; }

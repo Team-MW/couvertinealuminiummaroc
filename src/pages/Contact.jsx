@@ -23,12 +23,20 @@ export default function Contact() {
           <div>
             <div style={{ color: 'var(--color-primary)', marginBottom: '12px' }}><Phone size={32} /></div>
             <h4 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Numéro de téléphone</h4>
-            <p style={{ color: 'var(--color-text-muted)', margin: 0 }}>+212 661 562 140</p>
+            <p style={{ margin: 0 }}>
+              <a href="tel:+212661562140" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={(e) => e.target.style.color = 'var(--color-primary)'} onMouseOut={(e) => e.target.style.color = 'var(--color-text-muted)'}>
+                +212 661 562 140
+              </a>
+            </p>
           </div>
           <div>
             <div style={{ color: 'var(--color-primary)', marginBottom: '12px' }}><Mail size={32} /></div>
             <h4 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Adresse E-mail</h4>
-            <p style={{ color: 'var(--color-text-muted)', margin: 0 }}>couvertinealuminiummaroc@gmail.com</p>
+            <p style={{ margin: 0 }}>
+              <a href="mailto:couvertinealuminiummaroc@gmail.com" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={(e) => e.target.style.color = 'var(--color-primary)'} onMouseOut={(e) => e.target.style.color = 'var(--color-text-muted)'}>
+                couvertinealuminiummaroc@gmail.com
+              </a>
+            </p>
           </div>
         </div>
       </section>

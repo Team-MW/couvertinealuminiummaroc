@@ -9,15 +9,24 @@ export default function Footer() {
         <div className="footer-brand">
           <div className="logo-container">
             <img src="/logo.webp" alt="Logo" className="logo" />
-            <span className="logo-text">Couvertine Maroc</span>
           </div>
           <p className="footer-desc">
             L'expert de l'habillage en aluminium pour une protection élégante et durable.
           </p>
           <div className="footer-contact-info">
             <p><MapPin size={16} /> KM 20 route de Fes à Marrakech</p>
-            <p><Phone size={16} /> +212 661 562 140</p>
-            <p><Mail size={16} /> couvertinealuminiummaroc@gmail.com</p>
+            <p>
+              <Phone size={16} /> 
+              <a href="tel:+212661562140" className="footer-contact-link" style={{ color: 'inherit', textDecoration: 'none', marginLeft: '8px', transition: 'color 0.2s' }}>
+                +212 661 562 140
+              </a>
+            </p>
+            <p>
+              <Mail size={16} /> 
+              <a href="mailto:couvertinealuminiummaroc@gmail.com" className="footer-contact-link" style={{ color: 'inherit', textDecoration: 'none', marginLeft: '8px', transition: 'color 0.2s' }}>
+                couvertinealuminiummaroc@gmail.com
+              </a>
+            </p>
           </div>
         </div>
         
@@ -45,6 +54,9 @@ export default function Footer() {
             <Link to="/mentions-legales" style={{marginRight: '12px'}}>Mentions légales</Link> 
             <Link to="/politique-confidentialite" style={{marginRight: '12px'}}>Politique de confidentialité</Link> 
             <Link to="/mentions-legales">Conditions d’utilisation</Link>
+          </p>
+          <p style={{ marginTop: '16px', fontSize: '0.85rem' }}>
+            Réalisé par <a href="https://microdidact.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', fontWeight: 'bold' }}>microdidact</a>
           </p>
         </div>
       </div>

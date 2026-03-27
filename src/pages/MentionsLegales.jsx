@@ -19,8 +19,8 @@ export default function MentionsLegales() {
             <p style={{ lineHeight: '1.6', color: 'var(--color-text-muted)' }}>
               <strong>Couvertine Aluminium Maroc</strong><br />
               <strong>Adresse :</strong> Marrakech, Maroc<br />
-              <strong>Téléphone :</strong> +212 661 562 140<br />
-              <strong>Email :</strong> info@couvertinealuminiummaroc.com<br /><br />
+              <strong>Téléphone :</strong> <a href="tel:+212661562140" style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={(e) => e.target.style.color = 'var(--color-primary)'} onMouseOut={(e) => e.target.style.color = 'inherit'}>+212 661 562 140</a><br />
+              <strong>Email :</strong> <a href="mailto:info@couvertinealuminiummaroc.com" style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={(e) => e.target.style.color = 'var(--color-primary)'} onMouseOut={(e) => e.target.style.color = 'inherit'}>info@couvertinealuminiummaroc.com</a><br /><br />
               <strong>Responsable de publication :</strong><br />
               Couvertine Aluminium Maroc
             </p>

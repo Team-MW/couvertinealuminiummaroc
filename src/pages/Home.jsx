@@ -41,6 +41,129 @@ export default function Home() {
       {/* Stats Section */}
       <AnimatedStats />
 
+      {/* Why Choose Us - Stylish Yellow Version */}
+      <section style={{ 
+        padding: '120px 0', 
+        backgroundColor: '#ffcc00', 
+        position: 'relative',
+        overflow: 'hidden',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}>
+        {/* Large Watermark Text */}
+        <div style={{ 
+          position: 'absolute', 
+          top: '50%', 
+          left: '50%', 
+          transform: 'translate(-50%, -50%)', 
+          fontSize: 'clamp(5rem, 18vw, 15rem)', 
+          fontWeight: '950', 
+          color: 'rgba(0,0,0,0.05)', 
+          whiteSpace: 'nowrap',
+          zIndex: 0,
+          pointerEvents: 'none',
+          fontFamily: 'var(--font-display)',
+          letterSpacing: '-5px'
+        }}>
+          EXPERTISE
+        </div>
+
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <h2 className="section-title" style={{ 
+            color: '#000', 
+            fontSize: 'clamp(2.5rem, 5vw, 4rem)', 
+            fontWeight: '950', 
+            textTransform: 'uppercase',
+            marginBottom: '20px',
+            lineHeight: '0.9',
+            letterSpacing: '-2px'
+          }}>
+            Pourquoi Nous Choisir ?
+          </h2>
+          <p style={{ 
+            textAlign: 'center', 
+            color: '#000', 
+            maxWidth: '750px', 
+            margin: '0 auto 60px', 
+            fontWeight: '600', 
+            fontSize: '1.2rem',
+            lineHeight: '1.4'
+          }}>
+            Avec une expérience reconnue depuis plus de 20 ans dans le domaine de l’aluminium, notre entreprise s’engage à offrir un travail précis, durable et esthétique.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px' }}>
+            {['Fabrication 100% marocaine', 'Produits résistants et garantis', 'Équipe qualifiée et expérimentée', 'Respect des délais et des finitions', 'Devis rapide et personnalisé'].map((reason, idx) => (
+              <div key={idx} className="reason-card-stylish" style={{ 
+                padding: '30px 24px', 
+                backgroundColor: '#000', 
+                borderRadius: '20px', 
+                color: '#fff',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
+                transition: 'transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                textAlign: 'center'
+              }}>
+                <span style={{ 
+                  display: 'block', 
+                  fontSize: '2.5rem', 
+                  fontWeight: '950', 
+                  color: '#ffcc00', 
+                  marginBottom: '10px',
+                  lineHeight: '1'
+                }}>
+                  0{idx + 1}
+                </span>
+                <p style={{ 
+                  margin: 0, 
+                  fontWeight: '700', 
+                  fontSize: '1.1rem', 
+                  color: '#fff',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.5px'
+                }}>
+                  {reason}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Video Presentation Section */}
+      <section style={{ padding: '100px 0', backgroundColor: 'var(--color-bg-main)' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+            <h2 className="section-title">Découvrez Couvertine en Vidéo</h2>
+            <p style={{ color: 'var(--color-text-muted)', maxWidth: '700px', margin: '0 auto', fontSize: '1.2rem', lineHeight: '1.6' }}>
+              Plongez au cœur de notre expertise et regardez comment nos profilés en aluminium assurent un design premium et une étanchéité parfaite pour vos bâtiments.
+            </p>
+          </div>
+          
+          <div style={{ position: 'relative', width: '100%', maxWidth: '1100px', margin: '0 auto' }}>
+            {/* Glow effect */}
+            <div style={{ position: 'absolute', top: '10%', left: '5%', right: '5%', bottom: '-10%', background: 'linear-gradient(135deg, rgba(212,175,55,0.4), rgba(212,175,55,0.1))', filter: 'blur(60px)', zIndex: 0, borderRadius: '50%' }}></div>
+            
+            {/* Video Container */}
+            <div style={{ position: 'relative', width: '100%', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.5)', border: '1px solid rgba(212,175,55,0.3)', zIndex: 1, backgroundColor: '#000', aspectRatio: '16/9' }}>
+              <iframe 
+                src="https://www.youtube.com/embed/ZfSzKrKHd-k?rel=0&showinfo=0&modestbranding=1&vq=hd1080" 
+                title="Présentation Couvertine Aluminium Maroc" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowFullScreen
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
       {/* About Teaser */}
       <section style={{ padding: '100px 0', backgroundColor: '#ffffff', color: '#202124', position: 'relative', zIndex: 1 }}>
         <div className="container">
@@ -83,139 +206,75 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Video Presentation Section */}
-      <section style={{ padding: '100px 0', backgroundColor: 'var(--color-bg-main)' }}>
-        <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <h2 className="section-title">Découvrez Couvertine en Vidéo</h2>
-            <p style={{ color: 'var(--color-text-muted)', maxWidth: '700px', margin: '0 auto', fontSize: '1.2rem', lineHeight: '1.6' }}>
-              Plongez au cœur de notre expertise et regardez comment nos profilés en aluminium assurent un design premium et une étanchéité parfaite pour vos bâtiments.
-            </p>
-          </div>
-          
-          <div style={{ position: 'relative', width: '100%', maxWidth: '1100px', margin: '0 auto' }}>
-            {/* Glow effect */}
-            <div style={{ position: 'absolute', top: '10%', left: '5%', right: '5%', bottom: '-10%', background: 'linear-gradient(135deg, rgba(212,175,55,0.4), rgba(212,175,55,0.1))', filter: 'blur(60px)', zIndex: 0, borderRadius: '50%' }}></div>
-            
-            {/* Video Container */}
-            <div style={{ position: 'relative', width: '100%', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.5)', border: '1px solid rgba(212,175,55,0.3)', zIndex: 1, backgroundColor: '#000', aspectRatio: '16/9' }}>
-              <iframe 
-                src="https://www.youtube.com/embed/ZfSzKrKHd-k?rel=0&showinfo=0&modestbranding=1&vq=hd1080" 
-                title="Présentation Couvertine Aluminium Maroc" 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowFullScreen
-                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-              ></iframe>
-            </div>
-          </div>
+      {/* Footer pre-cta - Stylish Yellow Version */}
+      <section style={{ 
+        padding: '120px 0', 
+        backgroundColor: '#ffcc00', 
+        textAlign: 'center',
+        position: 'relative',
+        overflow: 'hidden',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}>
+        {/* Large Watermark Text */}
+        <div style={{ 
+          position: 'absolute', 
+          top: '50%', 
+          left: '50%', 
+          transform: 'translate(-50%, -50%)', 
+          fontSize: 'clamp(6rem, 22vw, 18rem)', 
+          fontWeight: '950', 
+          color: 'rgba(0,0,0,0.05)', 
+          whiteSpace: 'nowrap',
+          zIndex: 0,
+          pointerEvents: 'none',
+          fontFamily: 'var(--font-display)',
+          letterSpacing: '-5px'
+        }}>
+          MAROC
         </div>
-      </section>
 
-      {/* Main Services Showcase */}
-      <section style={{ padding: '100px 0', backgroundColor: '#f3f4f6', position: 'relative', zIndex: 1 }}>
-        <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
-            <h2 className="section-title">Nos Solutions Sur-Mesure</h2>
-            <p style={{ color: 'var(--color-text-muted)', maxWidth: '800px', margin: '0 auto', fontSize: '1.2rem', lineHeight: '1.6' }}>
-              Découvrez nos prestations haut de gamme en habillage aluminium, conçues pour protéger, isoler et transcender le design de vos bâtiments.
-            </p>
-          </div>
-
-          <div className="service-showcase-grid">
-            
-            {/* Service 1 */}
-            <div className="service-grid-card">
-              <div className="service-card-img-container">
-                <img src="/srv-couvertine.webp" alt="Couvertine" className="service-card-img" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', display: 'block' }} />
-              </div>
-              <div className="service-card-content">
-                <h3 className="service-card-title">Couvertine en aluminium 10/10ème</h3>
-                <div className="service-card-divider"></div>
-                <p className="service-card-text">
-                  Cette couvertine se distingue par sa résistance à la corrosion et aux variations climatiques, assurant une durabilité accrue sans nécessiter d’entretien régulier. Disponible en plusieurs finitions et coloris, souvent avec un revêtement laqué, elle s’intègre harmonieusement à l’esthétique de tous types de constructions.
-                </p>
-              </div>
-            </div>
-
-            {/* Service 2 */}
-            <div className="service-grid-card">
-              <div className="service-card-content">
-                <h3 className="service-card-title">Lambris en aluminium / Façades</h3>
-                <div className="service-card-divider"></div>
-                <p className="service-card-text">
-                  Idéal pour habiller les murs et les plafonds aussi bien en intérieur qu’en extérieur. Conçu à partir d’aluminium haute qualité, il se distingue par sa résistance exceptionnelle aux intempéries, à l’humidité et à la corrosion, en faisant un choix parfait pour les environnements exposés comme les façades, les sous-toitures et les vérandas.
-                </p>
-              </div>
-              <div className="service-card-img-container">
-                <img src="/srv-lambris.webp" alt="Lambris" className="service-card-img" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', display: 'block' }} />
-              </div>
-            </div>
-
-            {/* Service 3 */}
-            <div className="service-grid-card">
-              <div className="service-card-img-container">
-                <img src="/srv-boite.webp" alt="Boîte à eau" className="service-card-img" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', display: 'block' }} />
-              </div>
-              <div className="service-card-content">
-                <h3 className="service-card-title">Boîte à eau et descente pluviale en aluminium</h3>
-                <div className="service-card-divider"></div>
-                <p className="service-card-text">
-                  La boîte à eau permet de collecter et de diriger efficacement les eaux pluviales vers les descentes, tout en évitant les débordements. Elle est disponible en plusieurs formes et dimensions, avec des finitions laquées ou anodisées qui s’harmonisent parfaitement avec l’esthétique de la façade.
-                </p>
-              </div>
-            </div>
-
-            {/* Service 4 */}
-            <div className="service-grid-card">
-              <div className="service-card-content">
-                <h3 className="service-card-title">Appui de fenêtre en aluminium</h3>
-                <div className="service-card-divider"></div>
-                <p className="service-card-text">
-                  Conçu en aluminium, ce dispositif se distingue par sa légèreté, sa robustesse et sa résistance à la corrosion, garantissant une longue durée de vie sans entretien particulier.
-                </p>
-              </div>
-              <div className="service-card-img-container">
-                <img src="/srv-appui.webp" alt="Appui de fenêtre" className="service-card-img" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', display: 'block' }} />
-              </div>
-            </div>
-
-            {/* Service 5 */}
-            <div className="service-grid-card">
-              <div className="service-card-img-container">
-                <img src="/srv-etancheite.webp" alt="Étanchéité" className="service-card-img" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', display: 'block' }} />
-              </div>
-              <div className="service-card-content">
-                <h3 className="service-card-title">Étanchéité</h3>
-                <div className="service-card-divider"></div>
-                <p className="service-card-text">
-                  Elle joue un rôle essentiel dans le domaine de la construction, de l’industrie et des systèmes hydrauliques, garantissant la durabilité et la sécurité des bâtiments et équipements.
-                </p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section style={{ padding: '80px 0', backgroundColor: 'var(--color-bg-secondary)' }}>
-        <div className="container">
-          <h2 className="section-title">Pourquoi Nous Choisir ?</h2>
-          <p style={{ textAlign: 'center', color: 'var(--color-text-muted)', maxWidth: '700px', margin: '0 auto 40px' }}>
-            Avec une expérience reconnue depuis plus de 20 ans dans le domaine de l’aluminium, notre entreprise s’engage à offrir un travail précis, durable et esthétique.
+        <div className="container" style={{ position: 'relative', zIndex: 1, maxWidth: '900px' }}>
+          <h2 style={{ 
+            fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', 
+            fontWeight: '950', 
+            color: '#000',
+            textTransform: 'uppercase',
+            marginBottom: '20px',
+            lineHeight: '0.9',
+            letterSpacing: '-2px'
+          }}>
+            Couvertine <br />Aluminium Maroc
+          </h2>
+          <p style={{ 
+            fontSize: '1.2rem', 
+            marginBottom: '40px', 
+            fontWeight: '600',
+            color: '#000',
+            lineHeight: '1.4'
+          }}>
+            Couverture la plus fiable pour vos bâtiments grâce à son atelier mobile. Sur-mesure, rapide et durable : nous valorisons vos murs et façades partout au Maroc.
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px' }}>
-            {['Fabrication 100% marocaine', 'Produits résistants et garantis', 'Équipe qualifiée et expérimentée', 'Respect des délais et des finitions', 'Devis rapide et personnalisé'].map((reason, idx) => (
-              <div key={idx} style={{ padding: '24px', backgroundColor: 'var(--color-bg-main)', border: '1px solid var(--color-border)', borderRadius: '12px' }}>
-                <span style={{ display: 'block', fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-primary)', opacity: 0.5 }}>0{idx + 1}</span>
-                <p style={{ marginTop: '12px', fontWeight: '500' }}>{reason}</p>
-              </div>
-            ))}
-          </div>
+          <Link to="/contact" className="btn" style={{ 
+            padding: '18px 48px', 
+            backgroundColor: '#000', 
+            color: '#ffcc00',
+            borderRadius: '50px',
+            fontWeight: '900',
+            fontSize: '1.1rem',
+            textTransform: 'uppercase',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+            transition: 'transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05) rotate(1deg)'}
+          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1) rotate(0deg)'}
+          >
+            Contactez-nous aujourd'hui
+          </Link>
         </div>
       </section>
-
+      
       {/* Testimonials */}
       <section style={{ padding: '100px 0', backgroundColor: '#ffffff', color: '#202124' }}>
         <div className="container">
@@ -271,17 +330,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-      
-      {/* Footer pre-cta */}
-      <section style={{ padding: '80px 0', backgroundColor: 'var(--color-primary)', color: '#000', textAlign: 'center' }}>
-        <div className="container" style={{ maxWidth: '800px' }}>
-          <h2 style={{ fontSize: '2rem', marginBottom: '20px', color: '#000' }}>Couvertine Aluminium Maroc</h2>
-          <p style={{ fontSize: '1.2rem', marginBottom: '30px', fontWeight: '500' }}>
-            Couverture la plus fiable pour vos bâtiments grâce à son atelier mobile. Sur-mesure, rapide et durable : nous valorisons vos murs et façades partout au Maroc.
-          </p>
-          <Link to="/contact" className="btn" style={{ backgroundColor: '#000', color: '#fff' }}>Contactez-nous aujourd'hui</Link>
         </div>
       </section>
     </>
