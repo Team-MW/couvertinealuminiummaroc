@@ -7,9 +7,9 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer-container">
         <div className="footer-brand">
-          <div className="logo-container">
+          <Link to="/" className="logo-container">
             <img src="/logo.webp" alt="Logo" className="logo" />
-          </div>
+          </Link>
           <p className="footer-desc">
             L'expert de l'habillage en aluminium pour une protection élégante et durable.
           </p>
