@@ -1,6 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, MapPin, Phone, Mail } from 'lucide-react';
+import { ChevronRight, MapPin, Phone, Mail, Facebook, Instagram, Youtube } from 'lucide-react';
+
+const Tiktok = ({ size = 24 }) => (
+  <svg 
+    viewBox="0 0 24 24" 
+    width={size} 
+    height={size} 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+  >
+    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+  </svg>
+);
 
 export default function Footer() {
   return (
@@ -27,6 +42,20 @@ export default function Footer() {
                 couvertinealuminiummaroc@gmail.com
               </a>
             </p>
+          </div>
+          <div className="footer-socials">
+            <a href="https://www.facebook.com/couvertinealuminiummaroc/?locale=fr_FR&_rdc=1&_rdr#" target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="Facebook">
+              <Facebook size={18} />
+            </a>
+            <a href="https://www.instagram.com/couvertine_aluminiummaroc/" target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="Instagram">
+              <Instagram size={18} />
+            </a>
+            <a href="https://www.tiktok.com/@couvertinealuminium" target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="TikTok">
+              <Tiktok size={18} />
+            </a>
+            <a href="https://www.youtube.com/watch?v=ZfSzKrKHd-k" target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="YouTube">
+              <Youtube size={18} />
+            </a>
           </div>
         </div>
         

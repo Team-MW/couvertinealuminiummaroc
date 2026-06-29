@@ -1,9 +1,76 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Quote, Star, Layers, Building2, Droplets, PenTool } from 'lucide-react';
+import { ArrowRight, CheckCircle, Quote, Star, Layers, Building2, Droplets, PenTool, Facebook, Instagram, Youtube } from 'lucide-react';
 import AnimatedStats from '../components/AnimatedStats';
 
+const Tiktok = ({ size = 24 }) => (
+  <svg 
+    viewBox="0 0 24 24" 
+    width={size} 
+    height={size} 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+  >
+    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+  </svg>
+);
+
 export default function Home() {
+  const firstVideoRef = useRef(null);
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    const video = firstVideoRef.current;
+    const audio = audioRef.current;
+    if (!video || !audio) return;
+
+    // Ensure the video frames remain frozen
+    video.pause();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Attempt to play audio with sound (unmuted)
+            audio.muted = false;
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+              playPromise.catch((error) => {
+                // If browser blocks unmuted audio autoplay, play muted instead
+                console.log("Audio autoplay unmuted blocked by browser policy, falling back to muted:", error);
+                audio.muted = true;
+                audio.play().catch(err => console.error("Muted audio play failed:", err));
+              });
+            }
+          } else {
+            audio.pause();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(video);
+
+    // Unmute the audio track on user interaction if it is playing
+    const handleUserInteraction = () => {
+      if (audio && !audio.paused) {
+        audio.muted = false;
+      }
+    };
+
+    window.addEventListener('click', handleUserInteraction, { once: true });
+    window.addEventListener('touchstart', handleUserInteraction, { once: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('click', handleUserInteraction);
+      window.removeEventListener('touchstart', handleUserInteraction);
+    };
+  }, []);
   return (
     <>
       {/* Hero Section */}
@@ -40,6 +107,172 @@ export default function Home() {
 
       {/* Stats Section */}
       <AnimatedStats />
+
+      {/* Villa Showcases Videos Section */}
+      <section className="villa-videos-section">
+        {/* Large Watermark Text */}
+        <div style={{ 
+          position: 'absolute', 
+          top: '50%', 
+          left: '50%', 
+          transform: 'translate(-50%, -50%)', 
+          fontSize: 'clamp(5rem, 18vw, 15rem)', 
+          fontWeight: '950', 
+          color: 'rgba(0,0,0,0.05)', 
+          whiteSpace: 'nowrap',
+          zIndex: 0,
+          pointerEvents: 'none',
+          fontFamily: 'var(--font-display)',
+          letterSpacing: '-5px'
+        }}>
+          VILLAS
+        </div>
+
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '60px', position: 'relative', zIndex: 2 }}>
+            <h2 className="section-title" style={{ 
+              color: '#000', 
+              fontSize: 'clamp(2.5rem, 5vw, 4rem)', 
+              fontWeight: '950', 
+              textTransform: 'uppercase',
+              marginBottom: '20px',
+              lineHeight: '0.9',
+              letterSpacing: '-2px'
+            }}>
+              Nos Réalisations de Villas
+            </h2>
+            <p style={{ 
+              color: '#000', 
+              maxWidth: '750px', 
+              margin: '0 auto', 
+              fontWeight: '600', 
+              fontSize: '1.2rem',
+              lineHeight: '1.4'
+            }}>
+              Découvrez en images la pose de nos couvertines en aluminium et comment elles protègent et subliment l’architecture des plus belles villas modernes au Maroc.
+            </p>
+          </div>
+
+          <div className="video-grid-premium">
+            {/* Video 1 */}
+            <div className="video-card-premium">
+              <div className="video-wrapper-premium">
+                <video 
+                  ref={firstVideoRef}
+                  src="/la-touche-europeenne.mp4#t=0.1" 
+                  playsInline
+                  preload="auto" 
+                  className="video-element-premium"
+                  style={{ pointerEvents: 'none' }}
+                />
+                <audio 
+                  ref={audioRef}
+                  src="/la-touche-europeenne.mp4"
+                  preload="auto"
+                  loop
+                />
+              </div>
+            </div>
+
+            {/* Video 2 */}
+            <div className="video-card-premium">
+              <div className="video-wrapper-premium">
+                <video 
+                  src="/elegance-protegee.mp4#t=0.1" 
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls 
+                  preload="auto" 
+                  className="video-element-premium"
+                />
+              </div>
+            </div>
+
+            {/* Video 3 */}
+            <div className="video-card-premium">
+              <div className="video-wrapper-premium">
+                <video 
+                  src="/processus-fabrication.mp4#t=0.1" 
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls 
+                  preload="auto" 
+                  className="video-element-premium"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Social Media Links under videos */}
+          <div style={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            marginTop: '50px',
+            position: 'relative',
+            zIndex: 2
+          }}>
+            <p style={{ 
+              color: '#000', 
+              fontWeight: '700', 
+              fontSize: '1rem', 
+              marginBottom: '16px',
+              textTransform: 'uppercase',
+              letterSpacing: '1px'
+            }}>
+              Suivez-nous sur les réseaux sociaux
+            </p>
+            <div style={{ display: 'flex', gap: '20px' }}>
+              <a href="https://www.facebook.com/couvertinealuminiummaroc/?locale=fr_FR&_rdc=1&_rdr#" target="_blank" rel="noopener noreferrer" className="video-social-icon-btn fb-btn" aria-label="Facebook">
+                <Facebook size={22} />
+              </a>
+              <a href="https://www.instagram.com/couvertine_aluminiummaroc/" target="_blank" rel="noopener noreferrer" className="video-social-icon-btn ig-btn" aria-label="Instagram">
+                <Instagram size={22} />
+              </a>
+              <a href="https://www.tiktok.com/@couvertinealuminium" target="_blank" rel="noopener noreferrer" className="video-social-icon-btn tt-btn" aria-label="TikTok">
+                <Tiktok size={22} />
+              </a>
+              <a href="https://www.youtube.com/watch?v=ZfSzKrKHd-k" target="_blank" rel="noopener noreferrer" className="video-social-icon-btn yt-btn" aria-label="YouTube">
+                <Youtube size={22} />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Presentation Section */}
+      <section style={{ padding: '100px 0', backgroundColor: 'var(--color-bg-main)' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+            <h2 className="section-title">Découvrez Couvertine en Vidéo</h2>
+            <p style={{ color: 'var(--color-text-muted)', maxWidth: '700px', margin: '0 auto', fontSize: '1.2rem', lineHeight: '1.6' }}>
+              Plongez au cœur de notre expertise et regardez comment nos profilés en aluminium assurent un design premium et une étanchéité parfaite pour vos bâtiments.
+            </p>
+          </div>
+          
+          <div style={{ position: 'relative', width: '100%', maxWidth: '1100px', margin: '0 auto' }}>
+            {/* Glow effect */}
+            <div style={{ position: 'absolute', top: '10%', left: '5%', right: '5%', bottom: '-10%', background: 'linear-gradient(135deg, rgba(212,175,55,0.4), rgba(212,175,55,0.1))', filter: 'blur(60px)', zIndex: 0, borderRadius: '50%' }}></div>
+            
+            {/* Video Container */}
+            <div style={{ position: 'relative', width: '100%', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.5)', border: '1px solid rgba(212,175,55,0.3)', zIndex: 1, backgroundColor: '#000', aspectRatio: '16/9' }}>
+              <iframe 
+                src="https://www.youtube.com/embed/ZfSzKrKHd-k?rel=0&showinfo=0&modestbranding=1&vq=hd1080" 
+                title="Présentation Couvertine Aluminium Maroc" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowFullScreen
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Why Choose Us - Stylish Yellow Version */}
       <section style={{ 
@@ -132,37 +365,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Video Presentation Section */}
-      <section style={{ padding: '100px 0', backgroundColor: 'var(--color-bg-main)' }}>
-        <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <h2 className="section-title">Découvrez Couvertine en Vidéo</h2>
-            <p style={{ color: 'var(--color-text-muted)', maxWidth: '700px', margin: '0 auto', fontSize: '1.2rem', lineHeight: '1.6' }}>
-              Plongez au cœur de notre expertise et regardez comment nos profilés en aluminium assurent un design premium et une étanchéité parfaite pour vos bâtiments.
-            </p>
-          </div>
-          
-          <div style={{ position: 'relative', width: '100%', maxWidth: '1100px', margin: '0 auto' }}>
-            {/* Glow effect */}
-            <div style={{ position: 'absolute', top: '10%', left: '5%', right: '5%', bottom: '-10%', background: 'linear-gradient(135deg, rgba(212,175,55,0.4), rgba(212,175,55,0.1))', filter: 'blur(60px)', zIndex: 0, borderRadius: '50%' }}></div>
-            
-            {/* Video Container */}
-            <div style={{ position: 'relative', width: '100%', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.5)', border: '1px solid rgba(212,175,55,0.3)', zIndex: 1, backgroundColor: '#000', aspectRatio: '16/9' }}>
-              <iframe 
-                src="https://www.youtube.com/embed/ZfSzKrKHd-k?rel=0&showinfo=0&modestbranding=1&vq=hd1080" 
-                title="Présentation Couvertine Aluminium Maroc" 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowFullScreen
-                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
 
       {/* About Teaser */}
       <section style={{ padding: '100px 0', backgroundColor: '#ffffff', color: '#202124', position: 'relative', zIndex: 1 }}>
