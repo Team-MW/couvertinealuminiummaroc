@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import FAQ from '../components/FAQ';
 import PageHeader from '../components/PageHeader';
 
 export default function Contact() {
+  const jotformContainerRef = useRef(null);
+
+  useEffect(() => {
+    if (!jotformContainerRef.current) return;
+    
+    // Create the script tag for Jotform
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://form.jotform.com/jsform/261793564559372';
+    script.async = true;
+
+    // Append the script to our container
+    jotformContainerRef.current.appendChild(script);
+
+    return () => {
+      // Clean up the script container on unmount to prevent duplicated forms
+      if (jotformContainerRef.current) {
+        jotformContainerRef.current.innerHTML = '';
+      }
+    };
+  }, []);
   return (
     <>
       <PageHeader 
@@ -80,24 +101,11 @@ export default function Contact() {
               </div>
             </div>
             
-            <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-              <h3 className="form-title">Obtenez une consultation gratuite</h3>
-              <div className="form-group">
-                <input type="text" className="form-input" placeholder="Votre nom *" required />
-              </div>
-              <div className="form-group">
-                <input type="email" className="form-input" placeholder="Votre e-mail *" required />
-              </div>
-              <div className="form-group">
-                <input type="tel" className="form-input" placeholder="Votre Téléphone *" required />
-              </div>
-              <div className="form-group">
-                <textarea className="form-input form-textarea" placeholder="Votre message" required></textarea>
-              </div>
-              <button type="submit" className="btn btn-primary submit-btn">
-                Envoyer
-              </button>
-            </form>
+            <div className="contact-form" style={{ padding: '30px', minHeight: '600px' }}>
+              <h3 className="form-title" style={{ marginBottom: '20px' }}>Obtenez une consultation gratuite</h3>
+              <div ref={jotformContainerRef} style={{ width: '100%' }}></div>
+            </div>
+
           </div>
         </div>
       </section>
