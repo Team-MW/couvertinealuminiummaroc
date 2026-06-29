@@ -101,7 +101,7 @@ export default function Contact() {
               </div>
             </div>
             
-            <div className="contact-form" style={{ padding: '30px', minHeight: '600px' }}>
+            <div className="contact-form">
               <h3 className="form-title" style={{ marginBottom: '20px' }}>Obtenez une consultation gratuite</h3>
               <div ref={jotformContainerRef} style={{ width: '100%' }}></div>
             </div>

@@ -453,12 +453,29 @@
 .contact-form {
   padding: 60px 40px;
   border-left: 1px solid var(--color-border);
+  min-height: 600px;
 }
 
 @media (max-width: 991px) {
   .contact-form {
     border-left: none;
     border-top: 1px solid var(--color-border);
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-info {
+    padding: 40px 20px;
+  }
+  .contact-form {
+    padding: 30px 16px;
+    min-height: auto;
+  }
+  .contact-card {
+    border-radius: 16px;
+  }
+  .contact-section {
+    padding: 40px 0;
   }
 }
 

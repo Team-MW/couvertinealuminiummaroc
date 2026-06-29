@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Quote, Star, Layers, Building2, Droplets, PenTool, Facebook, Instagram, Youtube } from 'lucide-react';
+import { ArrowRight, CheckCircle, Quote, Star, Layers, Building2, Droplets, PenTool, Facebook, Instagram, Youtube, Volume2, VolumeX } from 'lucide-react';
 import AnimatedStats from '../components/AnimatedStats';
 
 const Tiktok = ({ size = 24 }) => (
@@ -23,6 +23,18 @@ export default function Home() {
   const audioRef = useRef(null);
   const villaSectionRef = useRef(null);
   const youtubeSectionRef = useRef(null);
+
+  const [isMuted, setIsMuted] = useState(false);
+  const isMutedRef = useRef(false);
+
+  const toggleMute = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    const newMuted = !audio.muted;
+    audio.muted = newMuted;
+    isMutedRef.current = newMuted;
+    setIsMuted(newMuted);
+  };
 
   useEffect(() => {
     const video = firstVideoRef.current;
@@ -48,13 +60,15 @@ export default function Home() {
 
         // Play audio if either the Villa section or the YouTube section is visible.
         if (intersectingSections.size > 0) {
-          audio.muted = false;
+          audio.muted = isMutedRef.current;
           const playPromise = audio.play();
           if (playPromise !== undefined) {
             playPromise.catch((error) => {
               // If browser blocks unmuted audio autoplay, play muted instead
               console.log("Audio autoplay unmuted blocked by browser policy, playing muted:", error);
               audio.muted = true;
+              isMutedRef.current = true;
+              setIsMuted(true);
               audio.play().catch(err => console.error("Muted audio play failed:", err));
             });
           }
@@ -68,10 +82,11 @@ export default function Home() {
     observer.observe(villaSection);
     observer.observe(youtubeSection);
 
-    // Unmute the audio track on user interaction if it is playing
+    // Unmute the audio track on user interaction if it is playing and was not manually muted
     const handleUserInteraction = () => {
-      if (audio && !audio.paused) {
+      if (audio && !audio.paused && !isMutedRef.current) {
         audio.muted = false;
+        setIsMuted(false);
       }
     };
 
@@ -166,27 +181,56 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="video-grid-premium">
-            {/* Video 1 */}
-            <div className="video-card-premium">
-              <div className="video-wrapper-premium">
-                <video 
-                  ref={firstVideoRef}
-                  src="/la-touche-europeenne.mp4#t=0.1" 
-                  playsInline
-                  preload="auto" 
-                  className="video-element-premium"
-                  style={{ pointerEvents: 'none' }}
-                />
-                <audio 
-                  ref={audioRef}
-                  src="/la-touche-europeenne.mp4"
-                  preload="auto"
-                  loop
-                />
-              </div>
-            </div>
+          {/* Mute/Unmute audio button */}
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '40px', position: 'relative', zIndex: 2 }}>
+            <button 
+              onClick={toggleMute}
+              className="btn btn-secondary"
+              style={{
+                backgroundColor: 'rgba(0,0,0,0.8)',
+                color: '#ffcc00',
+                border: '1px solid #ffcc00',
+                padding: '10px 24px',
+                borderRadius: '50px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                fontWeight: 'bold',
+                boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#ffcc00';
+                e.currentTarget.style.color = '#000000';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.8)';
+                e.currentTarget.style.color = '#ffcc00';
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
+              {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+              <span>{isMuted ? "Activer le son d'ambiance" : "Couper le son d'ambiance"}</span>
+            </button>
+          </div>
 
+          {/* Hidden first video for ambient audio */}
+          <video 
+            ref={firstVideoRef}
+            src="/la-touche-europeenne.mp4#t=0.1" 
+            playsInline
+            preload="auto" 
+            style={{ display: 'none' }}
+          />
+          <audio 
+            ref={audioRef}
+            src="/la-touche-europeenne.mp4"
+            preload="auto"
+            loop
+          />
+
+          <div className="video-grid-premium">
             {/* Video 2 */}
             <div className="video-card-premium">
               <div className="video-wrapper-premium">
