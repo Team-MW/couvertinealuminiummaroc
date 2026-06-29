@@ -21,39 +21,52 @@ const Tiktok = ({ size = 24 }) => (
 export default function Home() {
   const firstVideoRef = useRef(null);
   const audioRef = useRef(null);
+  const villaSectionRef = useRef(null);
+  const youtubeSectionRef = useRef(null);
 
   useEffect(() => {
     const video = firstVideoRef.current;
     const audio = audioRef.current;
-    if (!video || !audio) return;
+    const villaSection = villaSectionRef.current;
+    const youtubeSection = youtubeSectionRef.current;
+    if (!video || !audio || !villaSection || !youtubeSection) return;
 
     // Ensure the video frames remain frozen
     video.pause();
+
+    const intersectingSections = new Set();
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Attempt to play audio with sound (unmuted)
-            audio.muted = false;
-            const playPromise = audio.play();
-            if (playPromise !== undefined) {
-              playPromise.catch((error) => {
-                // If browser blocks unmuted audio autoplay, play muted instead
-                console.log("Audio autoplay unmuted blocked by browser policy, falling back to muted:", error);
-                audio.muted = true;
-                audio.play().catch(err => console.error("Muted audio play failed:", err));
-              });
-            }
+            intersectingSections.add(entry.target);
           } else {
-            audio.pause();
+            intersectingSections.delete(entry.target);
           }
         });
+
+        // Play audio if either the Villa section or the YouTube section is visible.
+        if (intersectingSections.size > 0) {
+          audio.muted = false;
+          const playPromise = audio.play();
+          if (playPromise !== undefined) {
+            playPromise.catch((error) => {
+              // If browser blocks unmuted audio autoplay, play muted instead
+              console.log("Audio autoplay unmuted blocked by browser policy, playing muted:", error);
+              audio.muted = true;
+              audio.play().catch(err => console.error("Muted audio play failed:", err));
+            });
+          }
+        } else {
+          audio.pause();
+        }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 } // triggers when even a small part (10%) of either section is on screen
     );
 
-    observer.observe(video);
+    observer.observe(villaSection);
+    observer.observe(youtubeSection);
 
     // Unmute the audio track on user interaction if it is playing
     const handleUserInteraction = () => {
@@ -109,7 +122,7 @@ export default function Home() {
       <AnimatedStats />
 
       {/* Villa Showcases Videos Section */}
-      <section className="villa-videos-section">
+      <section ref={villaSectionRef} className="villa-videos-section">
         {/* Large Watermark Text */}
         <div style={{ 
           position: 'absolute', 
@@ -246,7 +259,7 @@ export default function Home() {
       </section>
 
       {/* Video Presentation Section */}
-      <section style={{ padding: '100px 0', backgroundColor: 'var(--color-bg-main)' }}>
+      <section ref={youtubeSectionRef} style={{ padding: '100px 0', backgroundColor: 'var(--color-bg-main)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
             <h2 className="section-title">Découvrez Couvertine en Vidéo</h2>
